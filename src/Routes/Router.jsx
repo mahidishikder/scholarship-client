@@ -15,6 +15,7 @@ import AllScholarships from "../pages/AllScholarships/AllScholarships";
 import CardDetails from "../pages/AllScholarships/CardDetails/CardDetails";
 import Error from "../pages/Error/Error";
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -33,8 +34,12 @@ export const router = createBrowserRouter([
         path: '/scholarship/:id',
         element: <PrivateRoute><CardDetails></CardDetails></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/scholarship/${params.id}`),
-      }
-,      
+      },
+      // {
+      //  path:'/shareReview',
+      //  element:<ShareReview></ShareReview>
+      // },
+   
       {
         path:'/about',
         element:<About></About>
