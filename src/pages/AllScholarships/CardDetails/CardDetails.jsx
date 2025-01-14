@@ -2,17 +2,26 @@ import { useLoaderData } from "react-router-dom";
 import { motion } from "framer-motion";
 
 function CardDetails() {
+  const data = useLoaderData();
+  console.log(data);
+
   // Destructure data from loader
   const {
     application_fees,
     university_name,
     university_logo,
     scholarship_category,
-    location,
-    deadline,
-    subject_category,
+    university_location, // No destructuring
+    application_deadline, // No destructuring
+    subject_name, // No destructuring
     rating,
-  } = useLoaderData();
+    scholarship_description,
+    service_charge,
+    stipend,
+    post_date,
+  } = data;
+
+  console.log(university_name);
 
   // Variants for smooth animations
   const containerVariants = {
@@ -57,7 +66,7 @@ function CardDetails() {
         />
       </motion.div>
 
-      {/* Details */}
+      {/* Scholarship Details */}
       <motion.div
         className="bg-gray-100 p-6 rounded-lg shadow-md space-y-4"
         variants={itemVariants}
@@ -75,7 +84,7 @@ function CardDetails() {
           variants={itemVariants}
           whileHover={{ x: 10 }}
         >
-          <span className="font-bold">Subject:</span> {subject_category}
+          <span className="font-bold">Subject:</span> {subject_name}
         </motion.p>
 
         <motion.p
@@ -83,7 +92,7 @@ function CardDetails() {
           variants={itemVariants}
           whileHover={{ x: 10 }}
         >
-          <span className="font-bold">Location:</span> {location}
+          <span className="font-bold">Location:</span> {university_location}
         </motion.p>
 
         <motion.p
@@ -99,7 +108,7 @@ function CardDetails() {
           variants={itemVariants}
           whileHover={{ x: 10 }}
         >
-          <span className="font-bold">Deadline:</span> {deadline}
+          <span className="font-bold">Deadline:</span> {application_deadline}
         </motion.p>
 
         <motion.div
@@ -109,19 +118,51 @@ function CardDetails() {
           <span className="font-bold text-lg text-yellow-500">⭐</span>
           <p className="text-lg text-gray-700">{rating} / 5</p>
         </motion.div>
+
+        {/* Additional Details */}
+        <motion.p
+          className="text-lg text-gray-700"
+          variants={itemVariants}
+          whileHover={{ x: 10 }}
+        >
+          <span className="font-bold">Description:</span> {scholarship_description}
+        </motion.p>
+
+        <motion.p
+          className="text-lg text-gray-700"
+          variants={itemVariants}
+          whileHover={{ x: 10 }}
+        >
+          <span className="font-bold">Stipend:</span> {stipend}
+        </motion.p>
+
+        <motion.p
+          className="text-lg text-gray-700"
+          variants={itemVariants}
+          whileHover={{ x: 10 }}
+        >
+          <span className="font-bold">Service Charge:</span> {service_charge}
+        </motion.p>
+
+        <motion.p
+          className="text-lg text-gray-700"
+          variants={itemVariants}
+          whileHover={{ x: 10 }}
+        >
+          <span className="font-bold">Post Date:</span> {post_date}
+        </motion.p>
       </motion.div>
 
-      {/* Back Button */}
+      {/* Apply Scholarship Button */}
       <motion.div
         className="text-center mt-8"
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
       >
         <button
-          className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition-colors"
-          onClick={() => window.history.back()}
+          className="bg-[#6d091d] text-white py-2 px-6 rounded-lg hover:bg-[#960d28] transition-colors"
         >
-          Go Back
+          Apply Scholarship
         </button>
       </motion.div>
     </motion.div>
