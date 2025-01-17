@@ -14,6 +14,7 @@ import Blog from "../pages/Blog/Blog";
 import AllScholarships from "../pages/AllScholarships/AllScholarships";
 import CardDetails from "../pages/AllScholarships/CardDetails/CardDetails";
 import Error from "../pages/Error/Error";
+import Payment from "../pages/Payment/Payment";
 
 
 export const router = createBrowserRouter([
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path:'/about',
         element:<About></About>
+      },
+      {
+       path:'/payment',
+       element:<Payment></Payment>
       },
       {
         path:'/contact',
