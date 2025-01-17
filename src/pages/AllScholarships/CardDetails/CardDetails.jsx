@@ -11,7 +11,7 @@ import "swiper/css";
 
 function CardDetails() {
   const publicAxios = useAxiosPublic();
-  const [reviews] = useReview();
+  const [reviews,refetch] = useReview();
   const { user } = useContext(AuthContext);
   const data = useLoaderData();
 
@@ -54,6 +54,7 @@ function CardDetails() {
         text: "Please provide a review and a rating before submitting.",
         confirmButtonText: "OK",
       });
+
       return;
     }
 
@@ -77,6 +78,7 @@ function CardDetails() {
         showConfirmButton: false,
         timer: 1500,
       });
+      refetch()
 
       // Reset form
       setReview("");
