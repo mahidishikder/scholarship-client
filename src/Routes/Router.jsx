@@ -15,6 +15,7 @@ import AllScholarships from "../pages/AllScholarships/AllScholarships";
 import CardDetails from "../pages/AllScholarships/CardDetails/CardDetails";
 import Error from "../pages/Error/Error";
 import Payment from "../pages/Payment/Payment";
+import ScholarshipForm from "../pages/ScholarshipFrom/ScholarshipForm";
 
 
 export const router = createBrowserRouter([
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
       {
        path:'/payment',
        element:<Payment></Payment>
+      },
+      {
+        path:'/scholarshipForm',
+        element:<ScholarshipForm></ScholarshipForm>
       },
       {
         path:'/contact',

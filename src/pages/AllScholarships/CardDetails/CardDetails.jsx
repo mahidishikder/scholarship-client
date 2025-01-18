@@ -188,9 +188,23 @@ function CardDetails() {
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
         >
-          <Link to={`/payment`}><button className="bg-[#6d091d] text-white py-2 px-6 rounded-lg hover:bg-[#960d28] transition-colors">
-            Apply Scholarship
-          </button></Link>
+
+
+          <Link
+    to={{
+      pathname: "/payment",
+    }}
+    state={{
+      applicationFees: application_fees,
+    }}
+  >
+    <button className="bg-[#6d091d] text-white py-2 px-6 rounded-lg hover:bg-[#960d28] transition-colors">
+      Apply Scholarship
+    </button>
+  </Link>
+
+
+
         </motion.div>
       </motion.div>
 

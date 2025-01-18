@@ -10,7 +10,9 @@ function AllScholarships() {
 
   // Set filteredScholarships initially with all cards
   useEffect(() => {
-    setFilteredScholarships(card);
+    if (card.length > 0) {
+      setFilteredScholarships(card);
+    }
   }, [card]);
 
   // Handle Search Functionality
@@ -31,7 +33,7 @@ function AllScholarships() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Cards will appear one after another
+        staggerChildren: 0.2,
       },
     },
   };
@@ -39,7 +41,7 @@ function AllScholarships() {
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
-    hover: { scale: 1.05, transition: { duration: 0.3 } }, // Slight zoom on hover
+    hover: { scale: 1.05, transition: { duration: 0.3 } },
   };
 
   return (
@@ -146,7 +148,7 @@ function AllScholarships() {
             No Scholarships Available
           </p>
           <img
-            src="/images/no-scholarship.png" // Replace with an actual image path
+            src="/images/no-scholarship.png"
             alt="No Scholarships"
             className="mx-auto mt-4 w-64"
           />
