@@ -21,15 +21,16 @@ function CardDetails() {
     university_name,
     university_logo,
     scholarship_category,
-    university_location,
+    location,
     application_deadline,
-    subject_name,
+    subject_category,
     rating,
     scholarship_description,
     service_charge,
     stipend,
     post_date,
   } = data;
+ 
 
   // States for review form
   const [review, setReview] = useState("");
@@ -143,11 +144,11 @@ function CardDetails() {
           </motion.p>
 
           <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Subject:</span> {subject_name}
+            <span className="font-bold">Subject:</span> {subject_category}
           </motion.p>
 
           <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Location:</span> {university_location}
+            <span className="font-bold">Location:</span> {location}
           </motion.p>
 
           <motion.p className="text-lg text-gray-700" variants={itemVariants}>
@@ -196,6 +197,9 @@ function CardDetails() {
     }}
     state={{
       applicationFees: application_fees,
+      university_name,
+      scholarship_category,
+      subject_category,
     }}
   >
     <button className="bg-[#6d091d] text-white py-2 px-6 rounded-lg hover:bg-[#960d28] transition-colors">

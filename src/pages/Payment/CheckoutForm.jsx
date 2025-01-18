@@ -5,13 +5,11 @@ import { AuthContext } from "../../provider/AuthPorvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-function CheckoutForm({ price }) {
-  const navigate = useNavigate()
-  const [transactionId, setTransactionId] = useState('')
-  // Ensure price is a number
+function CheckoutForm({ price, UName, SCategory, SubCategory }) {
+  const navigate = useNavigate();
+  const [transactionId, setTransactionId] = useState("");
   const numericPrice = Number(price);
-  console.log("Numeric Price:", numericPrice);
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
@@ -28,14 +26,12 @@ function CheckoutForm({ price }) {
       .post("/create-payment-intent", { price: numericPrice })
       .then((res) => {
         if (res.data?.clientSecret) {
-          console.log("Client Secret:", res.data.clientSecret);
           setClientSecret(res.data.clientSecret);
         } else {
           setError("Failed to fetch client secret");
         }
       })
       .catch((err) => {
-        console.error("Error creating payment intent:", err);
         setError("Error creating payment intent");
       });
   }, [axiosPublic, numericPrice]);
@@ -49,8 +45,7 @@ function CheckoutForm({ price }) {
     }
 
     const card = elements.getElement(CardElement);
-
-    if (card === null) {
+    if (!card) {
       setError("Card Element not found.");
       return;
     }
@@ -61,11 +56,8 @@ function CheckoutForm({ price }) {
     });
 
     if (error) {
-      console.log("Payment error:", error);
       setError(error.message);
-    } else {
-      console.log("Payment method:", paymentMethod);
-      setError("");
+      return;
     }
 
     const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
@@ -73,41 +65,49 @@ function CheckoutForm({ price }) {
         card: card,
         billing_details: {
           email: user?.email,
-          name: user?.displayName
-        }
-      }
-    })
-    if (confirmError) {
-      console.log('confirm errror')
-    } else {
-      console.log("payment intent", paymentIntent)
-      if (paymentIntent.status === 'succeeded') {
-        console.log('transaction id', paymentIntent.id)
-        setTransactionId(paymentIntent.id)
-
-
-        const payment = {
-          email: user?.email,
           name: user?.displayName,
-          price: numericPrice,
-          date: new Date(),
-          transactionId: paymentIntent.id
-        }
-        const res = await axiosPublic.post('/payment', payment)
-        console.log(res.data)
+        },
+      },
+    });
 
+    if (confirmError) {
+      setError("Payment confirmation failed.");
+      return;
+    }
+
+    if (paymentIntent.status === "succeeded") {
+      setTransactionId(paymentIntent.id);
+
+      const payment = {
+        email: user?.email,
+        name: user?.displayName,
+        price: numericPrice,
+        date: new Date(),
+        transactionId: paymentIntent.id,
+      };
+
+      const res = await axiosPublic.post("/payment", payment);
+
+      if (res.status === 200) {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Your work has been saved",
+          title: "Payment successful",
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
-        navigate('/ScholarshipForm')
+
+        // Navigate to ScholarshipForm with state
+        navigate("/ScholarshipForm", {
+          state: {
+            UName,
+            SCategory,
+            SubCategory,
+            transactionId: paymentIntent.id,
+          },
+        });
       }
     }
-
-
   };
 
   return (
@@ -147,7 +147,7 @@ function CheckoutForm({ price }) {
         Pay
       </button>
       <p className="text-red-500 mt-5">{error}</p>
-      {transactionId && <p className="text-green-500 mt-5">Your transation id: {transactionId}</p>}
+      {transactionId && <p className="text-green-500 mt-5">Your transaction id: {transactionId}</p>}
     </form>
   );
 }
