@@ -6,8 +6,10 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 import ShareGoogle from "../../components/ShareGoogle/ShareGoogle";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 function SignUp() {
+  const axiosPublic = useAxiosPublic()
   const navigate = useNavigate()
   const { createUser,updateUserProfile } = useContext(AuthContext)
   const {
@@ -18,42 +20,44 @@ function SignUp() {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (data) => {
-    console.log(data)
-    createUser(data.email,data.password)
-    .then(result => {
-      updateUserProfile(data.name, data.photoURL)
-      .then(() => {
-        // const userInfo =  {
-        //   name: data.name,
-        //   email: data.email
-        // }
-      })
-      // updateUserProfile(data.name, data.photoURL)
-      //     .then(() => {
-      //       const userInfo = {
-      //         name : data.name,
-      //         email : data.email
-      //       }
-      
-      toast.success("regestation successful!", {
-        autoClose: 2000, // Toast 2 সেকেন্ড পরে অটো বন্ধ হবে
-        hideProgressBar: true, // লাইন অ্যানিমেশন বন্ধ
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-      });
-      navigate('/')
-      console.log(result.message)
-    })
-    .catch(error => {
+  const onSubmit = async (data) => { // Marking the function as async
+    try {
+      console.log(data);
+      const result = await createUser(data.email, data.password); // Await createUser call
+      console.log(result.message);
+  
+      await updateUserProfile(data.name, data.photoURL); // Await updateUserProfile call
+  
+      const userInfo = {
+        name: data.name,
+        email: data.email,
+      };
+  
+      const res = await axiosPublic.post('/users', userInfo); // Await axios POST call
+      console.log(res);
+      if(res.data.insertedId){
+        toast.success("Registration successful!", {
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+        });
+      }
+  
+     
+  
+      navigate('/'); // Navigate to home
+    } catch (error) {
+      console.error(error.message);
+  
       toast.error(error.message, {
-        autoClose: 2000, // Toast 3 সেকেন্ড পরে অটো বন্ধ হবে
-        hideProgressBar: true, // লাইন অ্যানিমেশন বন্ধ
+        autoClose: 2000,
+        hideProgressBar: true,
       });
-      console.log(error.message)
-    })
-  }
+    }
+  };
+  
   console.log(watch("example"))
   return (
     <div className="min-h-screen flex items-center justify-center ">
