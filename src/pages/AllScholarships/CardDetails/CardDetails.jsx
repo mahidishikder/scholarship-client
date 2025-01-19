@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { AuthContext } from "./../../../provider/AuthPorvider";
@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 function CardDetails() {
+  const navigate = useNavigate()
   const publicAxios = useAxiosPublic();
   const [reviews,refetch] = useReview();
   const { user } = useContext(AuthContext);
@@ -68,6 +69,9 @@ function CardDetails() {
       scholarshipId: data._id,
       status: "Pending",
       dateSubmitted: new Date().toISOString().split("T")[0],
+      university_name,
+    scholarship_category,
+
     };
 
     try {
@@ -80,6 +84,7 @@ function CardDetails() {
         timer: 1500,
       });
       refetch()
+      navigate('/dashboard/reviews')
 
       // Reset form
       setReview("");

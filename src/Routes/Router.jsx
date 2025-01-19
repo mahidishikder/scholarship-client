@@ -20,6 +20,8 @@ import Dashboard from "../Layout/Dashboard";
 import MyProfile from "../pages/MyProfile/MyProfile";
 import Application from "../pages/Application/Application";
 import Review from "../pages/Review/Review";
+import UpdateApplicationForm from "../pages/UpdateApplicationForm/UpdateApplicationForm";
+import UpdateReview from "../pages/updateReview/UpdateReview";
 
 
 export const router = createBrowserRouter([
@@ -57,6 +59,18 @@ export const router = createBrowserRouter([
       {
         path:'/scholarshipForm',
         element:<ScholarshipForm></ScholarshipForm>
+      },
+      {
+        path:'/AppliedScholarship/:id',
+        element: <UpdateApplicationForm></UpdateApplicationForm>,
+        loader: ({params}) => fetch(`http://localhost:5000/AppliedScholarship/${params.id}`)
+
+      },
+      {
+        path:`/updateReview/:id`,
+        element:<UpdateReview></UpdateReview>,
+        loader:({params}) => fetch(`http://localhost:5000/review/${params.id}`)
+
       },
       {
         path:'/contact',

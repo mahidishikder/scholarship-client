@@ -107,7 +107,8 @@ function CheckoutForm({ price, UName, SCategory, SubCategory,service_charge,_id,
             transactionId: paymentIntent.id,
             service_charge,
             _id,
-            unicercityLocation
+            unicercityLocation,
+            price
           },
         });
       }
