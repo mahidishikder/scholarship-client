@@ -5,7 +5,8 @@ import { AuthContext } from "../../provider/AuthPorvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-function CheckoutForm({ price, UName, SCategory, SubCategory }) {
+function CheckoutForm({ price, UName, SCategory, SubCategory,service_charge,_id, unicercityLocation }) {
+  console.log(service_charge,_id,unicercityLocation)
   const navigate = useNavigate();
   const [transactionId, setTransactionId] = useState("");
   const numericPrice = Number(price);
@@ -104,6 +105,9 @@ function CheckoutForm({ price, UName, SCategory, SubCategory }) {
             SCategory,
             SubCategory,
             transactionId: paymentIntent.id,
+            service_charge,
+            _id,
+            unicercityLocation
           },
         });
       }

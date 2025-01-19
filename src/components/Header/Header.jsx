@@ -160,7 +160,7 @@ function Header() {
                     </a>
                   </li>
                 </Link>
-                <Link to={`/dashboard`}>
+                <Link to={`/dashboard/profile`}>
                   <li className="hover:text-yellow-500">
                     <a>Dashboard</a>
                   </li>

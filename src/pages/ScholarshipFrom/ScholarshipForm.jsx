@@ -1,15 +1,18 @@
 import React, { useContext } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthPorvider';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { toast } from 'react-toastify';
 
 
 function ScholarshipForm() {
+  const navigate = useNavigate()
   const axiosPublic = useAxiosPublic()
   const {user} = useContext(AuthContext)
   const location = useLocation();
-  const { UName, SCategory, SubCategory, price, transactionId } = location.state || {};
+  const { UName, SCategory, SubCategory, price, transactionId, service_charge,
+    _id,
+    unicercityLocation } = location.state || {};
   console.log(UName,SCategory,SubCategory)
 
   const handleSubmit = async (e) => {
@@ -34,7 +37,13 @@ function ScholarshipForm() {
       subjectCategory: SubCategory, 
       userName: user?.displayName,
       userEmail: user?.email,
-      submissionDate: new Date().toISOString() 
+      submissionDate: new Date().toISOString() ,
+      price,
+      AplicationId:_id,
+      service_charge,
+      unicercityLocation,
+      transactionId
+
     };
   
     console.log(data); 
@@ -42,6 +51,7 @@ function ScholarshipForm() {
     console.log(res.data)
     if(res.data.insertedId){
       toast.success('Your scholarship application has been successfully submitted!');
+      navigate('/dashboard/applications')
     }
   };
 

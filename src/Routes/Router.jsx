@@ -16,6 +16,10 @@ import CardDetails from "../pages/AllScholarships/CardDetails/CardDetails";
 import Error from "../pages/Error/Error";
 import Payment from "../pages/Payment/Payment";
 import ScholarshipForm from "../pages/ScholarshipFrom/ScholarshipForm";
+import Dashboard from "../Layout/Dashboard";
+import MyProfile from "../pages/MyProfile/MyProfile";
+import Application from "../pages/Application/Application";
+import Review from "../pages/Review/Review";
 
 
 export const router = createBrowserRouter([
@@ -80,4 +84,22 @@ export const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:'/dashboard',
+    element:<Dashboard></Dashboard>,
+    children:[
+      {
+        path:'/dashboard/profile',
+        element:<MyProfile></MyProfile>
+      },
+      {
+        path:'/dashboard/applications',
+        element:<Application></Application>
+      },
+      {
+        path:'/dashboard/reviews',
+        element:<Review></Review>
+      }
+    ]
+  }
 ]);

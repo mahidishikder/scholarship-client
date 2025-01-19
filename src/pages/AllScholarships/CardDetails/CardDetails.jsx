@@ -200,6 +200,10 @@ function CardDetails() {
       university_name,
       scholarship_category,
       subject_category,
+      service_charge,
+      _id,
+      location
+
     }}
   >
     <button className="bg-[#6d091d] text-white py-2 px-6 rounded-lg hover:bg-[#960d28] transition-colors">
