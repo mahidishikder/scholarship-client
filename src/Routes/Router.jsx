@@ -27,6 +27,7 @@ import AppledScholarship from "../pages/AppledScholarship/AppledScholarship";
 import ManageScholarship from "../pages/ManageScholarship/ManageScholarship";
 import ManageReview from "../pages/ManageReview/ManageReview";
 import AddScholarship from "../pages/AddScholarship/AddScholarship";
+import UpdateScholarshipForm from "../pages/UpdateScholarshipForm/UpdateScholarshipForm";
 
 
 export const router = createBrowserRouter([
@@ -140,6 +141,12 @@ export const router = createBrowserRouter([
       {
         path:'/dashboard/addScholarship',
         element:<AddScholarship></AddScholarship>
+      },
+      {
+        path:'/dashboard/updateScholarshipForm/:id',
+        element:<UpdateScholarshipForm></UpdateScholarshipForm>,
+        loader:({params}) => fetch(`http://localhost:5000/scholarship/${params.id}`)
+
       }
     ]
   }

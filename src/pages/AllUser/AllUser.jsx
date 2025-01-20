@@ -5,8 +5,10 @@ import { RiDeleteBin2Fill } from "react-icons/ri";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion"; // Framer Motion Import
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 function AllUser() {
+
  
   const axiosSucure = useAxiosSecure();
 
@@ -17,6 +19,22 @@ function AllUser() {
       return res.data; // ডেটা রিটার্ন করা হচ্ছে
     },
   });
+
+  const handleMakeRole =async (_id) => {
+    console.log(_id)
+    const res = await axiosSucure.patch(`/users/admin/${_id}`)
+    console.log(res.data)
+    if(res.data.modifiedCount > 0){
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      refetch()
+    }
+ }
 
   const hanleDelete = async (_id) => {
     console.log(_id)
@@ -71,9 +89,11 @@ function AllUser() {
                 <td className="py-3 px-4">{user.name}</td>
                 <td className="py-3 px-4">{user.email}</td>
                 <td className="py-3 px-4 text-center">
-                  <button className="bg-[#7E0F27] py-2 px-3 rounded text-white text-lg hover:bg-[#a01433] transition duration-200">
+                  { user.role === 'admin'? 'Admin' : 
+                    <button onClick={() => handleMakeRole(user._id)} className="bg-[#7E0F27] py-2 px-3 rounded text-white text-lg hover:bg-[#a01433] transition duration-200">
                     <FaUsersGear />
                   </button>
+                  }
                 </td>
                 <td className="py-3 px-4 text-center">
                   <button

@@ -1,100 +1,96 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useLoaderData } from "react-router-dom";
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 
-function AddScholarship() {
-  const axiosSecure = useAxiosSecure();
+function UpdateScholarshipForm() {
+  const axiosSecure = useAxiosSecure()
+  const {_id, applicationDeadline,
+    applicationFees,
+    degree,
+    postDate,
+    postedUserEmail,
+    rating,
+    scholarshipCategory,
+    scholarshipDetails,
+    scholarshipName,
+    serviceCharge,
+    stipend,
+    subjectCategory,
+    tuitionFees,
+    universityCity,
+    universityCountry,
+    universityImage,
+    universityName,
+    universityRank} = useLoaderData()
+
+  // state for form data
   const [formData, setFormData] = useState({
-    scholarshipName: '',
-    universityName: '',
-    universityImage: '',
-    universityCountry: '',
-    universityCity: '',
-    universityRank: '',
-    subjectCategory: 'Agriculture',
-    scholarshipCategory: 'Full fund',
-    degree: 'Diploma',
-    tuitionFees: '',
-    applicationFees: '',
-    serviceCharge: '',
-    applicationDeadline: '',
-    postDate: '',
-    postedUserEmail: '',
-    rating: '', // নতুন
-    scholarshipDetails: '', // নতুন
-    stipend: '', // নতুন
+    scholarshipName,
+    universityName,
+    universityImage,
+    universityCountry,
+    universityCity,
+    universityRank,
+    subjectCategory,
+    scholarshipCategory,
+    degree,
+    tuitionFees,
+    applicationFees,
+    serviceCharge,
+    applicationDeadline,
+    postDate,
+    postedUserEmail,
+    rating,
+    scholarshipDetails,
+    stipend
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setFormData((prevData) => ({
       ...prevData,
-      [name]: name === 'rating' ? parseFloat(value) || '' : value, // rating কে number-এ কনভার্ট করা
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Assuming formData is the data you want to send to the server
+    console.log('Form Data:', formData);
+    
     try {
-      console.log('Submitted Data:', formData);
-      const res = await axiosSecure.post('/scholarship', formData);
+      const res = await axiosSecure.put(`/AppliedScholarship/${_id}`, formData);  // Pass formData as body
       console.log(res.data);
-
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Your work has been saved',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-
-      // ইনপুট রিসেট করার জন্য ফর্ম ডাটার স্টেট আপডেট করা
-      setFormData({
-        scholarshipName: '',
-        universityName: '',
-        universityImage: '',
-        universityCountry: '',
-        universityCity: '',
-        universityRank: '',
-        subjectCategory: 'Agriculture',
-        scholarshipCategory: 'Full fund',
-        degree: 'Diploma',
-        tuitionFees: '',
-        applicationFees: '',
-        serviceCharge: '',
-        applicationDeadline: '',
-        postDate: '',
-        postedUserEmail: '',
-        rating: '',
-        scholarshipDetails: '',
-        stipend: '',
-      });
+  
+      if (res.data.modifiedCount > 0) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",  // Use the correct icon name
+          title: "Your work has been updated",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      Swal.fire({
-        position: 'top-end',
-        icon: 'error',
-        title: 'Failed to save your work',
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      console.error('Error updating scholarship:', error);
     }
   };
+  
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Add Scholarship</h1>
+    <div>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Scholarship Name */}
         <div>
           <label className="block text-sm font-medium mb-1">Scholarship Name</label>
           <input
             type="text"
-            name="scholarshipName"
             value={formData.scholarshipName}
-            onChange={handleChange}
+            name="scholarshipName"
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
             required
           />
         </div>
@@ -103,11 +99,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">University Name</label>
           <input
+            value={formData.universityName}
             type="text"
             name="universityName"
-            value={formData.universityName}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
             required
           />
         </div>
@@ -116,11 +112,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">University Image (URL)</label>
           <input
+            value={formData.universityImage}
             type="text"
             name="universityImage"
-            value={formData.universityImage}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
           />
         </div>
 
@@ -128,11 +124,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">University Country</label>
           <input
+            value={formData.universityCountry}
             type="text"
             name="universityCountry"
-            value={formData.universityCountry}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
             required
           />
         </div>
@@ -141,11 +137,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">University City</label>
           <input
+            value={formData.universityCity}
             type="text"
             name="universityCity"
-            value={formData.universityCity}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
             required
           />
         </div>
@@ -154,11 +150,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">University World Rank</label>
           <input
+            value={formData.universityRank}
             type="number"
             name="universityRank"
-            value={formData.universityRank}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
           />
         </div>
 
@@ -166,10 +162,10 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">Subject Category</label>
           <select
-            name="subjectCategory"
             value={formData.subjectCategory}
-            onChange={handleChange}
+            name="subjectCategory"
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
           >
             <option>Agriculture</option>
             <option>Engineering</option>
@@ -181,10 +177,10 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">Scholarship Category</label>
           <select
-            name="scholarshipCategory"
             value={formData.scholarshipCategory}
-            onChange={handleChange}
+            name="scholarshipCategory"
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
           >
             <option>Full fund</option>
             <option>Partial</option>
@@ -196,10 +192,10 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">Degree</label>
           <select
-            name="degree"
             value={formData.degree}
-            onChange={handleChange}
+            name="degree"
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
           >
             <option>Diploma</option>
             <option>Bachelor</option>
@@ -211,11 +207,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">Tuition Fees</label>
           <input
+            value={formData.tuitionFees}
             type="number"
             name="tuitionFees"
-            value={formData.tuitionFees}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
           />
         </div>
 
@@ -223,11 +219,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">Application Fees</label>
           <input
+            value={formData.applicationFees}
             type="number"
             name="applicationFees"
-            value={formData.applicationFees}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
           />
         </div>
 
@@ -235,11 +231,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">Service Charge</label>
           <input
+            value={formData.serviceCharge}
             type="number"
             name="serviceCharge"
-            value={formData.serviceCharge}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
           />
         </div>
 
@@ -247,11 +243,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">Application Deadline</label>
           <input
+            value={formData.applicationDeadline}
             type="date"
             name="applicationDeadline"
-            value={formData.applicationDeadline}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
           />
         </div>
 
@@ -259,11 +255,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">Post Date</label>
           <input
+            value={formData.postDate}
             type="date"
             name="postDate"
-            value={formData.postDate}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
           />
         </div>
 
@@ -271,11 +267,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">Posted User Email</label>
           <input
+            value={formData.postedUserEmail}
             type="email"
             name="postedUserEmail"
-            value={formData.postedUserEmail}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
             required
           />
         </div>
@@ -284,11 +280,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">Rating</label>
           <input
+            value={formData.rating}
             type="number"
             name="rating"
-            value={formData.rating}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
           />
         </div>
 
@@ -296,11 +292,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">Scholarship Details</label>
           <textarea
-            name="scholarshipDetails"
             value={formData.scholarshipDetails}
-            onChange={handleChange}
+            name="scholarshipDetails"
             className="w-full border border-gray-300 rounded p-2"
             rows="4"
+            onChange={handleChange}
           ></textarea>
         </div>
 
@@ -308,11 +304,11 @@ function AddScholarship() {
         <div>
           <label className="block text-sm font-medium mb-1">Stipend</label>
           <input
+            value={formData.stipend}
             type="text"
             name="stipend"
-            value={formData.stipend}
-            onChange={handleChange}
             className="w-full border border-gray-300 rounded p-2"
+            onChange={handleChange}
           />
         </div>
 
@@ -328,4 +324,4 @@ function AddScholarship() {
   );
 }
 
-export default AddScholarship;
+export default UpdateScholarshipForm;
