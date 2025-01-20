@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthPorvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function AppledScholarship() {
   const { user } = useContext(AuthContext);
@@ -30,6 +31,7 @@ function AppledScholarship() {
 
   return (
     <div className="p-4">
+      <Helmet><title>APPLIED SCHOLARSHIP</title></Helmet>
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-100 text-gray-700">

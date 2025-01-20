@@ -29,6 +29,7 @@ function ShareGoogle() {
                 autoClose: 1000,
                 hideProgressBar: true,
               });
+             
               navigate(from, { replace: true });
             } else {
               toast.error(res.data.message, {

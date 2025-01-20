@@ -8,6 +8,7 @@ import { AuthContext } from "../../provider/AuthPorvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function ManageReview() {
   const axiosPublic = useAxiosPublic()
@@ -42,6 +43,7 @@ function ManageReview() {
               transition={{ duration: 0.4 }}
               className="bg-[#890C25] text-white"
             >
+              <Helmet><title>MANAGE REVIEWS</title></Helmet>
               <th className="py-3 px-6">Scholarship Name</th>
               <th className="py-3 px-6">University Name</th>
               <th className="py-3 px-6">Review Comment</th>

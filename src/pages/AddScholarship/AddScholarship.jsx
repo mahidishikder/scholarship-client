@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 function AddScholarship() {
   const axiosSecure = useAxiosSecure();
@@ -84,6 +85,7 @@ function AddScholarship() {
 
   return (
     <div className="container mx-auto p-4">
+      <Helmet><title>ADD SCHOLARSHIP</title></Helmet>
       <h1 className="text-2xl font-bold mb-4">Add Scholarship</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Scholarship Name */}

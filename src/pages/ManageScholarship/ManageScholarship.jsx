@@ -5,6 +5,7 @@ import { FcViewDetails } from "react-icons/fc";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 function ManageScholarship() {
   const axiosSecure = useAxiosSecure()
   const [card,refetch] = useCard()
@@ -25,6 +26,7 @@ function ManageScholarship() {
   }
   return (
     <div>
+      <Helmet><title>MANAGE SCHOLARSHIP</title></Helmet>
      <div className="overflow-x-auto">
   <table className="table table-xs">
     <thead>

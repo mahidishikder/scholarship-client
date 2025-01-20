@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { motion } from "framer-motion";
 import { AuthContext } from "../../provider/AuthPorvider";
+import { Helmet } from "react-helmet";
 
 function MyProfile() {
   const { user, loading } = useContext(AuthContext);
@@ -24,6 +25,7 @@ function MyProfile() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-[#6D091D] to-[#940c28] ">
+      <Helmet><title>MY PR0FILE</title></Helmet>
       <motion.div
         className="w-full max-w-lg p-8 bg-white shadow-lg rounded-lg"
         initial={{ opacity: 0, scale: 0.8 }}

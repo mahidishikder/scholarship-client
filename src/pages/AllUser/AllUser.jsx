@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { motion } from "framer-motion"; // Framer Motion Import
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 function AllUser() {
 
@@ -52,12 +53,14 @@ function AllUser() {
 
   return (
     <motion.div
+    
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
       className="p-6 bg-gray-100 rounded-lg shadow-md"
     >
       <h1 className="text-3xl font-bold text-center mb-6">All Users</h1>
+      <Helmet><title>MANAGE USERS</title></Helmet>
       <div className="overflow-x-auto bg-white shadow-lg rounded-lg">
         <motion.table
           initial={{ opacity: 0 }}

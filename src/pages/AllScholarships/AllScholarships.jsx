@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import useCard from "../../hooks/useCard";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function AllScholarships() {
   const [card] = useCard(); // Fetching all scholarships data
@@ -53,6 +54,9 @@ function AllScholarships() {
     >
       {/* Search Box */}
       <div className="flex justify-center items-center mb-8">
+        <Helmet>
+          <title>SCHOLARSSHIPS</title>
+        </Helmet>
         <input
           type="text"
           placeholder="Search by Scholarship, University, or Degree Name"
