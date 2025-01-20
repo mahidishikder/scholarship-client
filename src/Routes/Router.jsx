@@ -22,6 +22,11 @@ import Application from "../pages/Application/Application";
 import Review from "../pages/Review/Review";
 import UpdateApplicationForm from "../pages/UpdateApplicationForm/UpdateApplicationForm";
 import UpdateReview from "../pages/updateReview/UpdateReview";
+import AllUser from "../pages/AllUser/AllUser";
+import AppledScholarship from "../pages/AppledScholarship/AppledScholarship";
+import ManageScholarship from "../pages/ManageScholarship/ManageScholarship";
+import ManageReview from "../pages/ManageReview/ManageReview";
+import AddScholarship from "../pages/AddScholarship/AddScholarship";
 
 
 export const router = createBrowserRouter([
@@ -100,8 +105,9 @@ export const router = createBrowserRouter([
   },
   {
     path:'/dashboard',
-    element:<Dashboard></Dashboard>,
+    element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children:[
+      // normal user
       {
         path:'/dashboard/profile',
         element:<MyProfile></MyProfile>
@@ -113,6 +119,27 @@ export const router = createBrowserRouter([
       {
         path:'/dashboard/reviews',
         element:<Review></Review>
+      },
+      // admin user
+      {
+        path:'/dashboard/users',
+        element:<AllUser></AllUser>
+      },
+      {
+        path:'/dashboard/appliedScholarship',
+        element:<AppledScholarship></AppledScholarship>
+      },
+      {
+        path:'/dashboard/manageScholarship',
+        element:<ManageScholarship></ManageScholarship>
+      },
+      {
+        path:'/dashboard/manageReview',
+        element:<ManageReview></ManageReview>
+      },
+      {
+        path:'/dashboard/addScholarship',
+        element:<AddScholarship></AddScholarship>
       }
     ]
   }
