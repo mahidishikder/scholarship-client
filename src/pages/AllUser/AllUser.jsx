@@ -11,19 +11,26 @@ import { Helmet } from "react-helmet";
 function AllUser() {
 
  
-  const axiosSucure = useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
+  
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await axiosSucure.get("/users");
+      const token = localStorage.getItem("access-token"); // টোকেন পাঠানোর জন্য পড়া হচ্ছে
+      const res = await axiosSecure.get("/users", {
+        headers: {
+          authorization: `Bearer ${token}`, // সঠিকভাবে টোকেন যুক্ত করা হয়েছে
+        },
+      });
       return res.data; // ডেটা রিটার্ন করা হচ্ছে
     },
   });
+  
 
   const handleMakeRole =async (_id) => {
     console.log(_id)
-    const res = await axiosSucure.patch(`/users/admin/${_id}`)
+    const res = await axiosSecure.patch(`/users/admin/${_id}`) 
     console.log(res.data)
     if(res.data.modifiedCount > 0){
       Swal.fire({
@@ -39,7 +46,7 @@ function AllUser() {
 
   const hanleDelete = async (_id) => {
     console.log(_id)
-    const res  = await axiosSucure.delete(`/users/${_id}`)
+    const res  = await axiosSecure.delete(`/users/${_id}`)
     console.log(res.data)
     if(res.data.deletedCount > 0){
       refetch()

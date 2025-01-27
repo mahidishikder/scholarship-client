@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
       {
         path: '/scholarship/:id',
         element: <PrivateRoute><CardDetails></CardDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://y-blond-psi.vercel.app/scholarship/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/scholarship/${params.id}`),
       },
       // {
       //  path:'/shareReview',
@@ -69,13 +69,13 @@ export const router = createBrowserRouter([
       {
         path:'/AppliedScholarship/:id',
         element: <UpdateApplicationForm></UpdateApplicationForm>,
-        loader: ({params}) => fetch(`https://y-blond-psi.vercel.app/AppliedScholarship/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/AppliedScholarship/${params.id}`)
 
       },
       {
         path:`/updateReview/:id`,
         element:<UpdateReview></UpdateReview>,
-        loader:({params}) => fetch(`https://y-blond-psi.vercel.app/review/${params.id}`)
+        loader:({params}) => fetch(`http://localhost:5000/review/${params.id}`)
 
       },
       {
@@ -145,7 +145,7 @@ export const router = createBrowserRouter([
       {
         path:'/dashboard/updateScholarshipForm/:id',
         element:<UpdateScholarshipForm></UpdateScholarshipForm>,
-        loader:({params}) => fetch(`https://y-blond-psi.vercel.app/scholarship/${params.id}`)
+        loader:({params}) => fetch(`http://localhost:5000/scholarship/${params.id}`)
 
       }
     ]

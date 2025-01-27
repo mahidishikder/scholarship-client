@@ -9,9 +9,10 @@ import { RiContactsBook2Line } from "react-icons/ri";
 import { SlDocs } from "react-icons/sl";
 import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
 
 function Dashboard() {
-  const isAdmin = true
+  const [isAdmin] = useAdmin()
   return (
     <div className="flex flex-col lg:flex-row gap-6 p-4">
       {/* Sidebar */}
