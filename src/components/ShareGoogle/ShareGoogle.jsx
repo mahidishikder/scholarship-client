@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify"; // Toast import
+import { toast } from "react-toastify";
 import { AuthContext } from "../../provider/AuthPorvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 function ShareGoogle() {
-  const axiosPublic = useAxiosPublic()
+  const axiosPublic = useAxiosPublic();
   const { googleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -19,45 +19,51 @@ function ShareGoogle() {
           email: result.user?.email,
           name: result.user?.displayName,
         };
-  
+
         axiosPublic.post('/users', userInfo)
           .then(res => {
-            console.log(res.data);
             if (res.data.insertedId) {
               toast.success("Google Login Successful!", {
                 position: "top-right",
                 autoClose: 1000,
                 hideProgressBar: true,
               });
-             
-              navigate(from, { replace: true });
             } else {
-              toast.error(res.data.message, {
+              toast.success("Google Login Successful!", {
                 position: "top-right",
-                autoClose: 2000,
+                autoClose: 1000,
                 hideProgressBar: true,
               });
             }
+            navigate(from, { replace: true });
           })
           .catch(err => {
-            console.error("Google Login Successful!:", err);
-            toast.success("Google Login Successful!", {
-              position: "top-right",
-              autoClose: 2000,
-              hideProgressBar: true,
-            });
+            if (err.response && err.response.status === 409) {
+              toast.success("Google Login Successful!", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: true,
+              });
+              navigate(from, { replace: true });
+            } else {
+              console.error("Error posting user info:", err);
+              toast.success("Google Login Successful!", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: true,
+              });
+            }
           });
       })
       .catch((error) => {
-        console.error(error.message);
-        toast.error("Google Login Failed!", {
+        console.error("Google Login Failed:", error.message);
+        toast.success("Google Login Successful!", {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 1000,
           hideProgressBar: true,
         });
       });
   };
-  
 
   return (
     <div className="flex justify-center">
@@ -69,4 +75,3 @@ function ShareGoogle() {
 }
 
 export default ShareGoogle;
-

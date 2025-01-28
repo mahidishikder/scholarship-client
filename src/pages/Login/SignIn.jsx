@@ -25,10 +25,10 @@ function SignIn() {
     const userCaptcha = captchaRef.current.value;
     if (validateCaptcha(userCaptcha)) {
       toast.success("Captcha validated successfully!");
-      setDisabled(false); // বাটন সক্রিয় হবে
+      setDisabled(false); // Activate button
     } else {
       toast.error("Captcha validation failed!");
-      setDisabled(true); // বাটন নিষ্ক্রিয় হবে
+      setDisabled(true); // Deactivate button
     }
   };
 
@@ -117,7 +117,7 @@ function SignIn() {
               ref={captchaRef}
               type="text"
               id="captcha"
-              onChange={() => setDisabled(true)} // নতুন ক্যাপচা ইনপুটে বাটন নিষ্ক্রিয় হবে
+              onChange={() => setDisabled(true)} // Deactivate button on new captcha input
               className="w-full px-4 py-2 text-sm border rounded-lg focus:ring-blue-500 focus:border-blue-500 border-gray-300"
               placeholder="Enter captcha"
               required
@@ -153,6 +153,3 @@ function SignIn() {
 }
 
 export default SignIn;
-
-
-

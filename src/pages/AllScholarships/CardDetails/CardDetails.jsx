@@ -10,7 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 function CardDetails() {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const publicAxios = useAxiosPublic();
   const [reviews,refetch] = useReview();
   const { user } = useContext(AuthContext);
@@ -84,7 +84,7 @@ function CardDetails() {
         timer: 1500,
       });
       refetch()
-      navigate('/dashboard/reviews')
+      // navigate('/dashboard/reviews')
 
       // Reset form
       setReview("");

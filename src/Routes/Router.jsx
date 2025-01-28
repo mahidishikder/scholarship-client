@@ -8,7 +8,7 @@ import Contact from "../pages/Contact/Contact";
 import Profile from "../pages/Profile/Profile";
 import SignIn from "../pages/Login/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
-import Secret from "../pages/Secret/Secret";
+// import Secret from "../pages/Secret/Secret";
 import PrivateRoute from "../provider/PrivateRoute";
 import Blog from "../pages/Blog/Blog";
 import AllScholarships from "../pages/AllScholarships/AllScholarships";
@@ -98,10 +98,10 @@ export const router = createBrowserRouter([
         path:'/signUp',
         element:<SignUp></SignUp>
       },
-      {
-        path:'/secret',
-        element:<PrivateRoute><Secret></Secret></PrivateRoute>
-      }
+      // {
+      //   path:'/secret',
+      //   element:<PrivateRoute><Secret></Secret></PrivateRoute>
+      // }
     ]
   },
   {

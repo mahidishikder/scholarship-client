@@ -51,7 +51,7 @@ function Header() {
         }>
         SCHOLARSSHIPS
       </NavLink>
-      {user && (
+      {/* {user && (
         <NavLink
           to="/secret"
           className={({ isActive }) =>
@@ -59,7 +59,7 @@ function Header() {
           }>
           SECRET
         </NavLink>
-      )}
+      )} */}
       <NavLink
         to="/blog"
         className={({ isActive }) =>

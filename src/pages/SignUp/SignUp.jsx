@@ -11,7 +11,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 function SignUp() {
   const axiosPublic = useAxiosPublic()
   const navigate = useNavigate()
-  const { createUser,updateUserProfile } = useContext(AuthContext)
+  const { createUser, updateUserProfile } = useContext(AuthContext)
   const {
     register,
     reset,
@@ -35,7 +35,7 @@ function SignUp() {
   
       const res = await axiosPublic.post('/users', userInfo); // Await axios POST call
       console.log(res);
-      if(res.data.insertedId){
+      if (res.data.insertedId) {
         toast.success("Registration successful!", {
           autoClose: 2000,
           hideProgressBar: true,
@@ -44,8 +44,6 @@ function SignUp() {
           draggable: false,
         });
       }
-  
-     
   
       navigate('/'); // Navigate to home
     } catch (error) {
@@ -57,8 +55,8 @@ function SignUp() {
       });
     }
   };
-  
-  console.log(watch("example"))
+
+  console.log(watch("example"));
   return (
     <div className="min-h-screen flex items-center justify-center ">
       <Helmet>
@@ -93,30 +91,19 @@ function SignUp() {
             />
             {errors.email && <span className="text-red-500">This field is required</span>}
           </div>
-          {/* <div className="mb-4 ">
-            <label className="block text-gray-700 font-semibold mb-2">
-              Upload Photo
-            </label>
-            <input
-            {...register("photo", { required: true })}
-              type="file"
-              className="block py-2 pl-2 bg-[#ffffff]  w-full text-sm text-gray-700 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
-          </div> */}
 
           <div className="mb-4 ">
             <label className="block text-gray-700 font-semibold mb-2">
-              Upload Photo
+              Upload Photo URL
             </label>
             <input
               {...register("photoURL", { required: true })}
-              type="password"
-              placeholder="Enter your Photo Url"
+              type="text"  // Changed from 'password' to 'text'
+              placeholder="Enter your Photo URL"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
             {errors.photoURL && <span className="text-red-500">This field is required</span>}
           </div>
-
 
           <div className="mb-6">
             <label className="block text-gray-700 font-semibold mb-2">
@@ -151,9 +138,7 @@ function SignUp() {
 
         <p className="text-gray-600 text-center mt-4">
           Already have an account?{" "}
-         <Link className="text-blue-400" to={`/signIn`}>sign in</Link>
-            
-         
+         <Link className="text-blue-400" to="/SignIn">sign in</Link>
         </p>
       </div>
     </div>

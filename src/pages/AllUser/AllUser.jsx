@@ -9,10 +9,7 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 
 function AllUser() {
-
- 
   const axiosSecure = useAxiosSecure();
-  
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
@@ -26,41 +23,40 @@ function AllUser() {
       return res.data; // ডেটা রিটার্ন করা হচ্ছে
     },
   });
-  
 
-  const handleMakeRole =async (_id) => {
-    console.log(_id)
-    const res = await axiosSecure.patch(`/users/admin/${_id}`) 
-    console.log(res.data)
-    if(res.data.modifiedCount > 0){
+  // ইউজারকে রোল হিসেবে admin, moderator বা user হিসেবে পরিবর্তন করা
+  const handleMakeRole = async (_id, role) => {
+    console.log(_id, role);
+    const res = await axiosSecure.patch(`/users/${role}/${_id}`); 
+    console.log(res.data);
+    if (res.data.modifiedCount > 0) {
       Swal.fire({
         position: "top-end",
         icon: "success",
         title: "Your work has been saved",
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
       });
-      refetch()
+      refetch();
     }
- }
+  };
 
   const hanleDelete = async (_id) => {
-    console.log(_id)
-    const res  = await axiosSecure.delete(`/users/${_id}`)
-    console.log(res.data)
-    if(res.data.deletedCount > 0){
-      refetch()
+    console.log(_id);
+    const res = await axiosSecure.delete(`/users/${_id}`);
+    console.log(res.data);
+    if (res.data.deletedCount > 0) {
+      refetch();
       toast.success("User deleted successfully!", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: true,
       });
     }
-    }
+  };
 
   return (
     <motion.div
-    
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
@@ -99,11 +95,26 @@ function AllUser() {
                 <td className="py-3 px-4">{user.name}</td>
                 <td className="py-3 px-4">{user.email}</td>
                 <td className="py-3 px-4 text-center">
-                  { user.role === 'admin'? 'Admin' : 
-                    <button onClick={() => handleMakeRole(user._id)} className="bg-[#7E0F27] py-2 px-3 rounded text-white text-lg hover:bg-[#a01433] transition duration-200">
-                    <FaUsersGear />
-                  </button>
-                  }
+                  {user.role === "admin" ? (
+                    "Admin"
+                  ) : user.role === "moderator" ? (
+                    "Moderator"
+                  ) : (
+                    <div>
+                      <button
+                        onClick={() => handleMakeRole(user._id, "admin")}
+                        className="bg-[#7E0F27] py-2 px-3 rounded text-white text-lg hover:bg-[#a01433] transition duration-200"
+                      >
+                        Admin
+                      </button>
+                      <button
+                        onClick={() => handleMakeRole(user._id, "moderator")}
+                        className="bg-blue-500 py-2 px-3 rounded text-white text-lg hover:bg-blue-700 transition duration-200 ml-2"
+                      >
+                        Moderator
+                      </button>
+                    </div>
+                  )}
                 </td>
                 <td className="py-3 px-4 text-center">
                   <button
@@ -123,4 +134,3 @@ function AllUser() {
 }
 
 export default AllUser;
-
