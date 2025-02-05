@@ -21,7 +21,7 @@ The Scholarship Management System is a web platform designed for students to exp
 - **Smooth Animations:** Framer Motion is used to provide smooth UI animations.
 
 ## Screenshot
-![Project Screenshot](path-to-your-screenshot.png)
+![Project Screenshot]([path-to-your-screenshot.png](https://i.ibb.co.com/RThxCCwj/Screenshot-2025-02-05-190302.png))
 
 ## Dependencies
 ### Core Dependencies:
