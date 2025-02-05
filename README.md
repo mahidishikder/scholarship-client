@@ -81,32 +81,7 @@ The **Scholarship Management System** is a user-friendly web platform that allow
   "swiper": "^11.2.1"
 }
 
-⚙️ Installation & Setup
-1️⃣ Prerequisites
-Ensure you have Node.js and Git installed.
 
-2️⃣ Clone the Repository
-bash
-Copy
-Edit
-git clone [REPO_LINK]
-cd scholarship-management-system
-3️⃣ Install Dependencies
-bash
-Copy
-Edit
-npm install
-4️⃣ Start the Development Server
-bash
-Copy
-Edit
-npm run dev
-5️⃣ Open in Browser
-Visit http://localhost:5173/ in your browser to view the project.
-
-🔗 Live Project & Resources
-🔗 Live Demo: Click Here
-📜 GitHub Repository: [Insert GitHub Link Here]
 
 
 
