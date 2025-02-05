@@ -3,7 +3,7 @@
 ## Project Overview
 The Scholarship Management System is a web platform designed for students to explore and apply for various scholarships. The system includes features like user authentication, scholarship search, and application management. The website offers an intuitive user interface with smooth animations and interactive features.
 
-**Live Project Link:** [Insert your live project link here]
+**Live Project Link:** [https://final-cf7ce.firebaseapp.com/](https://final-cf7ce.firebaseapp.com/)
 
 ## Technologies Used
 - **Frontend:** React, React Router, Framer Motion, TailwindCSS, DaisyUI
@@ -21,7 +21,7 @@ The Scholarship Management System is a web platform designed for students to exp
 - **Smooth Animations:** Framer Motion is used to provide smooth UI animations.
 
 ## Screenshot
-![Project Screenshot]([path-to-your-screenshot.png](https://i.ibb.co.com/RThxCCwj/Screenshot-2025-02-05-190302.png))
+![Project Screenshot](https://i.ibb.co.com/RThxCCwj/Screenshot-2025-02-05-190302.png)
 
 ## Dependencies
 ### Core Dependencies:
@@ -48,3 +48,4 @@ The Scholarship Management System is a web platform designed for students to exp
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/scholarship-management-system.git
+
