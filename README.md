@@ -1,51 +1,84 @@
-# Scholarship Management System
+# 🎓 Scholarship Management System  
 
-## Project Overview
-The Scholarship Management System is a web platform designed for students to explore and apply for various scholarships. The system includes features like user authentication, scholarship search, and application management. The website offers an intuitive user interface with smooth animations and interactive features.
+## 🌟 Project Overview  
 
-**Live Project Link:** [https://final-cf7ce.firebaseapp.com/](https://final-cf7ce.firebaseapp.com/)
+The **Scholarship Management System** is a user-friendly web platform that allows students to explore, filter, and apply for various scholarships. The system includes **secure authentication**, **smooth UI animations**, and **interactive features** for a seamless experience.  
 
-## Technologies Used
-- **Frontend:** React, React Router, Framer Motion, TailwindCSS, DaisyUI
-- **Backend:** Firebase (for authentication and database management)
-- **Payment Integration:** Stripe (for scholarship application fees)
-- **Other Tools:** Axios, React Toastify, SweetAlert2, React Rating Stars Component, Swiper
+🔗 **Live Project:** [Click Here](https://final-cf7ce.firebaseapp.com/)  
 
-## Features
-- **User Authentication:** Secure login and registration system using Firebase Authentication.
-- **Scholarship Search & Filter:** Browse scholarships by categories, ratings, and other criteria.
-- **Apply for Scholarships:** Students can apply for scholarships directly through the platform.
-- **Admin Dashboard:** Admins can manage and add new scholarships to the platform.
-- **Payment Integration:** Stripe integration for handling application fees.
-- **User Ratings:** Students can rate scholarships they’ve applied to or received using React Rating Stars.
-- **Smooth Animations:** Framer Motion is used to provide smooth UI animations.
+---
 
-## Screenshot
-![Project Screenshot](https://i.ibb.co.com/RThxCCwj/Screenshot-2025-02-05-190302.png)
+## 📸 Project Screenshot  
 
-## Dependencies
-### Core Dependencies:
-- `@stripe/react-stripe-js`: ^3.1.1
-- `@stripe/stripe-js`: ^5.5.0
-- `axios`: ^1.7.9
-- `firebase`: ^11.1.0
-- `framer-motion`: ^11.17.0
-- `react`: ^18.3.1
-- `react-router-dom`: ^7.1.1
-- `react-toastify`: ^11.0.2
-- `sweetalert2`: ^11.15.10
-- `swiper`: ^11.2.1
+![Project Screenshot](https://i.ibb.co.com/RThxCCwj/Screenshot-2025-02-05-190302.png)  
 
-### Development Dependencies:
-- `@vitejs/plugin-react`: ^4.3.4
-- `eslint`: ^9.17.0
-- `tailwindcss`: ^3.4.17
-- `vite`: ^6.0.5
-- `daisyui`: ^4.12.23
+---
 
-## How to Run the Project Locally
+## 🚀 Features  
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/scholarship-management-system.git
+✅ **User Authentication** (Login/Register)  
+✅ **Scholarship Search & Filter**  
+✅ **Application Management System**  
+✅ **Save Scholarships for Later**  
+✅ **Smooth Animations & Responsive UI**  
+✅ **Stripe Payment Gateway Integration**  
+✅ **Captcha Verification for Security**  
+✅ **Real-time Data Fetching & Updates**  
+
+---
+
+## 🛠 Technologies Used  
+
+### **Frontend**  
+- React.js  
+- React Router  
+- Framer Motion  
+- React Icons  
+- React Helmet  
+- Tailwind CSS  
+- DaisyUI  
+
+### **Backend & APIs**  
+- Firebase  
+- Axios  
+- React Query  
+
+### **Payment & Security**  
+- Stripe (React Stripe JS)  
+- React Simple Captcha  
+
+### **Other Utilities**  
+- React Toastify (Notifications)  
+- SweetAlert2 (Alerts & Popups)  
+- Swiper (Carousel & Sliders)  
+- Match Sorter & Sort-By (Filtering & Sorting)  
+
+---
+
+## 📦 Dependencies  
+
+```json
+"dependencies": {
+  "@stripe/react-stripe-js": "^3.1.1",
+  "@stripe/stripe-js": "^5.5.0",
+  "@tanstack/react-query": "^5.64.1",
+  "axios": "^1.7.9",
+  "firebase": "^11.1.0",
+  "framer-motion": "^11.17.0",
+  "localforage": "^1.10.0",
+  "match-sorter": "^8.0.0",
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "react-helmet": "^6.1.0",
+  "react-hook-form": "^7.54.2",
+  "react-icons": "^5.4.0",
+  "react-rating-stars-component": "^2.2.0",
+  "react-router-dom": "^7.1.1",
+  "react-simple-captcha": "^9.3.1",
+  "react-toastify": "^11.0.2",
+  "sort-by": "^1.2.0",
+  "sweetalert2": "^11.15.10",
+  "swiper": "^11.2.1"
+}
+
 
