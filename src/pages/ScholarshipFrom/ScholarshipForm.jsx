@@ -1,26 +1,30 @@
 import React, { useContext } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthPorvider';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { toast } from 'react-toastify';
 
-
 function ScholarshipForm() {
-  const navigate = useNavigate()
-  const axiosPublic = useAxiosPublic()
-  const {user} = useContext(AuthContext)
+  const axiosPublic = useAxiosPublic();
+  const { user } = useContext(AuthContext);
   const location = useLocation();
-  const { UName, SCategory, SubCategory, price, transactionId, service_charge,
-    _id,
-    unicercityLocation } = location.state || {};
-  console.log(UName,SCategory,SubCategory)
+  const { 
+    UName, 
+    SCategory, 
+    SubCategory, 
+    price, 
+    transactionId, 
+    serviceChargee, 
+    _id, 
+    unicercityLocation 
+  } = location.state || {};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Form থেকে ডেটা সংগ্রহ করা
     const formData = new FormData(e.target);
-  
+
     const data = {
       phone: formData.get("phone"),
       photo: formData.get("photo"), // File input data
@@ -32,34 +36,36 @@ function ScholarshipForm() {
       sscResult: formData.get("sscResult"),
       hscResult: formData.get("hscResult"),
       studyGap: formData.get("studyGap"),
-      universityName: UName, 
+      universityName: UName,
       scholarshipCategory: SCategory,
-      subjectCategory: SubCategory, 
+      subjectCategory: SubCategory,
       userName: user?.displayName,
       userEmail: user?.email,
-      submissionDate: new Date().toISOString() ,
+      submissionDate: new Date().toISOString(),
       price,
-      AplicationId:_id,
-      service_charge,
+      AplicationId: _id,
+      serviceChargee,
       unicercityLocation,
       transactionId
-
     };
-  
-    console.log(data); 
-    const res = await axiosPublic.post('/AppliedScholarship',data)
-    console.log(res.data)
-    if(res.data.insertedId){
-      toast.success('Your scholarship application has been successfully submitted!');
-      navigate('/dashboard/applications')
+
+    try {
+      const res = await axiosPublic.post('/AppliedScholarship', data);
+      if (res.data.insertedId) {
+        toast.success('Your scholarship application has been successfully submitted!');
+        e.target.reset(); // ফর্ম রিসেট করা হচ্ছে
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('An error occurred. Please try again.');
     }
   };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl my-24 ring-[#890C25]  ring-2">
+      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl my-24 ring-[#890C25] ring-2">
         <h2 className="text-3xl my-6 font-bold mb-10 text-center text-[#890C25]">Scholarship Application Form</h2>
-        <form onSubmit={handleSubmit} className="space-y-4 ">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Phone Number */}
           <div>
             <label className="block text-sm font-medium text-gray-700">Phone Number</label>
@@ -174,24 +180,20 @@ function ScholarshipForm() {
             </select>
           </div>
 
+          {/* Display Read-Only Fields */}
           <div>
-            <label className='block text-sm font-medium text-gray-700'>University name</label>
-             <input type="text" 
-             value={UName}
-             className='mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500' />
+            <label className='block text-sm font-medium text-gray-700'>University Name</label>
+            <input type="text" value={UName} readOnly className='mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2' />
           </div>
 
           <div>
-            <label className='block text-sm font-medium text-gray-700'>Scholarship category</label>
-             <input type="text" 
-             value={SCategory}
-             className='mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500' />
+            <label className='block text-sm font-medium text-gray-700'>Scholarship Category</label>
+            <input type="text" value={SCategory} readOnly className='mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2' />
           </div>
+
           <div>
             <label className='block text-sm font-medium text-gray-700'>Subject Category</label>
-             <input type="text" 
-             value={SubCategory}
-             className='mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500' />
+            <input type="text" value={SubCategory} readOnly className='mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2' />
           </div>
 
           {/* Submit Button */}
@@ -208,4 +210,3 @@ function ScholarshipForm() {
 }
 
 export default ScholarshipForm;
-

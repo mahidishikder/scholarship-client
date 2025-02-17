@@ -13,7 +13,7 @@ function AppledScholarship() {
   const { user } = useContext(AuthContext);
   const axiosPublic = useAxiosPublic();
   const [applications, refetch] = useApplication();
-  console.log(applications);
+  
 
   const handleDelete = async (_id) => {
     try {
@@ -69,22 +69,25 @@ function AppledScholarship() {
                   {i + 1}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {items.universityName}
+                  {items.universityName
+                  }
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-500 font-bold">
+                  {items.country}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {items.unicercityLocation}
+                  {items.subjectCategory
+                  }
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {items.subjectCategory}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {items.degree}
+                  {items.degree
+                  }
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-600">
                   ${items.price}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-600">
-                  {items.service_charge}
+                  {items.serviceChargee}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium flex justify-between items-center">
                   <button className="text-xl">

@@ -44,11 +44,11 @@ function ManageScholarship() {
       {
         card.map((one,i) => <tr key={i}>
           <th>{i+1}</th>
-          <td>Cy Ganderton</td>
-          <td>Quality Control Specialist</td>
-          <td>Littel, Schaden and Vandervort</td>
-          <td>Canada</td>
-          <td>12/16/2020</td>
+          <td>{one.scholarshipName}</td>
+          <td>{one.universityName}</td>
+          <td>{one.subjectCategory}</td>
+          <td>{one.degree}</td>
+          <td>{one.applicationFees}</td>
           <td className="text-2xl flex justify-between">
             <button className=""><FcViewDetails /></button>
             <Link to={`/dashboard/updateScholarshipForm/${one._id}`}><button className="text-blue-800"><LiaEditSolid /></button></Link>

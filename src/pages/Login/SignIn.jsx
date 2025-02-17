@@ -63,19 +63,19 @@ function SignIn() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen dark:bg-slate-900 bg-gray-100">
       <Helmet>
         <title>Sign In</title>
       </Helmet>
-      <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg shadow-blue-200 rounded-lg">
-        <h2 className="text-2xl font-bold text-center text-gray-800">
+      <div className="w-full max-w-md p-8 space-y-6 dark:bg-slate-700 dark:shadow bg-white shadow-lg shadow-blue-200 rounded-lg">
+        <h2 className="text-2xl dark:text-white/90 font-bold text-center text-gray-800">
           Login to Your Account
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-700"
+              className="block dark:text-white/70 mb-2 text-sm font-medium text-gray-700"
             >
               Email Address
             </label>
@@ -92,7 +92,7 @@ function SignIn() {
           <div>
             <label
               htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-700"
+              className="block mb-2 dark:text-white/70 text-sm font-medium text-gray-700"
             >
               Password
             </label>
@@ -109,16 +109,20 @@ function SignIn() {
           <div>
             <label
               htmlFor="captcha"
-              className="block mb-2 text-sm font-medium text-gray-700"
+              className="block mb-2 text-sm dark:text-white/70 font-medium text-gray-700"
             >
-              <LoadCanvasTemplate />
+              <div className=" dark:bg-white/90  ">
+
+              <LoadCanvasTemplate/>
+
+              </div>
             </label>
             <input
               ref={captchaRef}
               type="text"
               id="captcha"
               onChange={() => setDisabled(true)} // Deactivate button on new captcha input
-              className="w-full px-4 py-2 text-sm border rounded-lg focus:ring-blue-500 focus:border-blue-500 border-gray-300"
+              className="w-full px-4 py-2 text-sm border  rounded-lg focus:ring-blue-500 focus:border-blue-500 border-gray-300"
               placeholder="Enter captcha"
               required
             />
@@ -141,7 +145,7 @@ function SignIn() {
           </button>
         </form>
         <ShareGoogle />
-        <p>
+        <p className="dark:text-gray-300">
           Not a member?{" "}
           <Link className="text-blue-400" to={`/signUp`}>
             Sign up

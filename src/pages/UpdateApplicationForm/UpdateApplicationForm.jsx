@@ -6,6 +6,7 @@ function UpdateApplicationForm() {
   const axiosPublic = useAxiosPublic()
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
     const phone = e.target.phone.value;
     const photo = e.target.photo.files[0];
     const village = e.target.village.value;
@@ -16,7 +17,7 @@ function UpdateApplicationForm() {
     const sscResult = e.target.sscResult.value;
     const hscResult = e.target.hscResult.value;
     const studyGap = e.target.studyGap.value;
-
+  
     const data = {
       phone,
       photo,
@@ -29,16 +30,21 @@ function UpdateApplicationForm() {
       hscResult,
       studyGap,
     };
-
-     const res = await axiosPublic.put(`/AppliedScholarship/${_id}`,data)
-        console.log(res.data)
-        if(res.data.modifiedCount> 0){
-          toast.success('Your scholarship application has been successfully submitted!');
-         
-        }
   
-    // Proceed to send the data to the server or API
+    // পুরনো ডেটা এবং নতুন ডেটা তুলনা করুন
+    // if (JSON.stringify(data) === JSON.stringify(existingData)) {
+    //   console.log("No changes detected.");
+    //   return;
+    // }
+  
+    // ডেটা সাবমিট করুন
+    const res = await axiosPublic.put(`/AppliedScholarship/${_id}`, data);
+    console.log(res.data);
+    if (res.data.modifiedCount > 0) {
+      toast.success("Your scholarship application has been successfully updated!");
+    }
   };
+  
   
   const {country,degree,district,genter,hscResult,phone,photo,price,scholarshipCategory,service_charge,sscResult,studyGap,subjectCategory,submissioDate,transactionId,unicercityLocation,universityName,userEmail,userName,village,_id} = useLoaderData()
 

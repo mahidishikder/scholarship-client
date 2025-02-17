@@ -1,7 +1,7 @@
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
-import { AuthContext } from "./../../../provider/AuthPorvider";
+import { AuthContext } from "../../../provider/AuthPorvider";
 import ReactStars from "react-rating-stars-component";
 import Swal from "sweetalert2";
 import useReview from "../../../hooks/useReview";
@@ -10,28 +10,26 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 function CardDetails() {
-  // const navigate = useNavigate()
   const publicAxios = useAxiosPublic();
-  const [reviews,refetch] = useReview();
+  const [reviews, refetch] = useReview();
   const { user } = useContext(AuthContext);
   const data = useLoaderData();
 
   const {
     _id,
-    application_fees,
-    university_name,
-    university_logo,
-    scholarship_category,
-    location,
-    application_deadline,
-    subject_category,
+    applicationFees,
+    universityName,
+    universityImage,
+    scholarshipCategory,
+    universityCountry,
+    applicationDeadline,
+    subjectCategory,
     rating,
-    scholarship_description,
-    service_charge,
+    scholarshipDetails,
+    serviceCharge,
     stipend,
-    post_date,
+    postDate,
   } = data;
- 
 
   // States for review form
   const [review, setReview] = useState("");
@@ -56,7 +54,6 @@ function CardDetails() {
         text: "Please provide a review and a rating before submitting.",
         confirmButtonText: "OK",
       });
-
       return;
     }
 
@@ -69,9 +66,8 @@ function CardDetails() {
       scholarshipId: data._id,
       status: "Pending",
       dateSubmitted: new Date().toISOString().split("T")[0],
-      university_name,
-    scholarship_category,
-
+      universityName,
+      scholarshipCategory,
     };
 
     try {
@@ -83,8 +79,7 @@ function CardDetails() {
         showConfirmButton: false,
         timer: 1500,
       });
-      refetch()
-      // navigate('/dashboard/reviews')
+      refetch();
 
       // Reset form
       setReview("");
@@ -124,7 +119,7 @@ function CardDetails() {
           className="text-center text-4xl font-bold text-blue-700 mb-8"
           variants={itemVariants}
         >
-          {university_name}
+          {universityName}
         </motion.h2>
 
         <motion.div
@@ -134,8 +129,8 @@ function CardDetails() {
           transition={{ duration: 0.5 }}
         >
           <img
-            src={university_logo}
-            alt={university_name}
+            src={universityImage}
+            alt={universityName}
             className="w-40 h-40 object-cover rounded-full shadow-lg"
           />
         </motion.div>
@@ -145,23 +140,23 @@ function CardDetails() {
           variants={itemVariants}
         >
           <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Category:</span> {scholarship_category}
+            <span className="font-bold">Category:</span> {scholarshipCategory}
           </motion.p>
 
           <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Subject:</span> {subject_category}
+            <span className="font-bold">Subject:</span> {subjectCategory}
           </motion.p>
 
           <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Location:</span> {location}
+            <span className="font-bold">Location:</span> {universityCountry}
           </motion.p>
 
           <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Application Fee:</span> {application_fees}
+            <span className="font-bold">Application Fee:</span> {applicationFees}
           </motion.p>
 
           <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Deadline:</span> {application_deadline}
+            <span className="font-bold">Deadline:</span> {applicationDeadline}
           </motion.p>
 
           <motion.div
@@ -173,7 +168,7 @@ function CardDetails() {
           </motion.div>
 
           <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Description:</span> {scholarship_description}
+            <span className="font-bold">Description:</span> {scholarshipDetails}
           </motion.p>
 
           <motion.p className="text-lg text-gray-700" variants={itemVariants}>
@@ -181,11 +176,11 @@ function CardDetails() {
           </motion.p>
 
           <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Service Charge:</span> {service_charge}
+            <span className="font-bold">Service Charge:</span> {serviceCharge}
           </motion.p>
 
           <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Post Date:</span> {post_date}
+            <span className="font-bold">Post Date:</span> {postDate}
           </motion.p>
         </motion.div>
 
@@ -194,34 +189,28 @@ function CardDetails() {
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
         >
-
-
           <Link
-    to={{
-      pathname: "/payment",
-    }}
-    state={{
-      applicationFees: application_fees,
-      university_name,
-      scholarship_category,
-      subject_category,
-      service_charge,
-      _id,
-      location
-
-    }}
-  >
-    <button className="bg-[#6d091d] text-white py-2 px-6 rounded-lg hover:bg-[#960d28] transition-colors">
-      Apply Scholarship
-    </button>
-  </Link>
-
-
-
+            to={{
+              pathname: "/payment",
+            }}
+            state={{
+              applicationFees,
+              universityName,
+              scholarshipCategory,
+              subjectCategory,
+              serviceCharge,
+              _id,
+              universityCountry, // Added universityCountry here
+            }}
+          >
+            <button className="bg-[#6d091d] text-white py-2 px-6 rounded-lg hover:bg-[#960d28] transition-colors">
+              Apply Scholarship
+            </button>
+          </Link>
         </motion.div>
       </motion.div>
 
-      <h2 className="text-4xl font-semibold text-center mb-12">Our Student Review</h2>
+      <h2 className="text-4xl font-semibold text-center mb-12">Our Student Reviews</h2>
       <Swiper
         watchSlidesProgress={true}
         slidesPerView={3}
@@ -282,12 +271,14 @@ function CardDetails() {
           placeholder="Write your review here"
           className="border p-2 w-full h-24 mt-4 mb-4"
         ></textarea>
-        <div className="mb-10"><button
-          onClick={handleSubmit}
-          className="bg-[#6d091d]  text-white py-2 px-4 rounded"
-        >
-          Submit Review
-        </button></div>
+        <div className="mb-10">
+          <button
+            onClick={handleSubmit}
+            className="bg-[#6d091d] text-white py-2 px-4 rounded"
+          >
+            Submit Review
+          </button>
+        </div>
       </div>
     </div>
   );

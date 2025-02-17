@@ -4,6 +4,7 @@ import useCard from "../../../hooks/useCard";
 
 function HomeCard() {
   const [card] = useCard();
+  console.log(card)
   const navigate = useNavigate();
 
   // Animation variants for cards
@@ -37,8 +38,8 @@ function HomeCard() {
             {/* University Logo */}
             <div className="flex justify-center mb-4">
               <motion.img
-                src={item.university_logo}
-                alt={item.university_name}
+                src={item.universityImage}
+                alt={item.universityName}
                 className="w-20 h-20 object-cover rounded-full shadow-md"
                 whileHover={{ rotate: 360 }} // Rotate on hover
                 transition={{ duration: 0.5 }}
@@ -47,32 +48,34 @@ function HomeCard() {
 
             {/* University Name */}
             <h3 className="text-lg font-bold text-center text-white mb-4">
-              {item.university_name}
+              {item.universityName}
             </h3>
 
             {/* Scholarship Info */}
             <div className="space-y-2">
               <p className="text-sm text-gray-300">
                 <span className="font-medium text-white">Category:</span>{" "}
-                {item.scholarship_category}
+                {item.
+scholarshipCategory}
               </p>
               <p className="text-sm text-gray-300">
                 <span className="font-medium text-white">Subject:</span>{" "}
-                {item.subject_category}
+                {item.
+scholarshipCategory}
               </p>
               <p className="text-sm text-gray-300">
                 <span className="font-medium text-white">Location:</span>{" "}
-                {item.location}
+                {item.universityCountry}
               </p>
               <p className="text-sm text-gray-300">
                 <span className="font-medium text-white">
                   Application Fee:
                 </span>{" "}
-                {item.application_fees}
+                {item.applicationFees}
               </p>
               <p className="text-sm text-gray-300">
                 <span className="font-medium text-white">Deadline:</span>{" "}
-                {item.deadline}
+                {item.applicationDeadline}
               </p>
             </div>
 
@@ -101,7 +104,7 @@ function HomeCard() {
       {/* All Scholarship Button */}
       <div className="text-center mt-8">
         <motion.button
-          onClick={() => navigate("/scholarsships")}
+          onClick={() => navigate("/scholarships")}
           className="hover:bg-[#6D091D] hover:text-white py-3 text-lg px-14 mt-8 rounded bg-white/90 ring-2 ring-[#6D091D] text-black transition-colors"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}

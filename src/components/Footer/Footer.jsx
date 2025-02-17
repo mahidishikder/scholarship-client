@@ -1,8 +1,8 @@
 
 function Footer() {
   return (
-<div>
-<footer className="footer bg-base-200 justify-items-center text-base-content p-10">
+<div className="bg-blue-200 dark:bg-blue-300">
+<footer className="footer  justify-items-center text-base-content p-10">
   <nav>
     <h6 className="footer-title">Services</h6>
     <a className="link link-hover">Branding</a>
@@ -40,7 +40,7 @@ function Footer() {
     </fieldset>
   </form>
 </footer>
-<footer className="footer footer-center bg-base-200 text-base-content rounded p-10">
+<footer className="footer footer-center  text-base-content rounded p-10">
   <nav className="grid grid-flow-col gap-4">
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>

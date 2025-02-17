@@ -58,7 +58,7 @@ function UpdateScholarshipForm() {
     e.preventDefault();
     
     // Assuming formData is the data you want to send to the server
-    console.log('Form Data:', formData);
+    console.log('update data Form Data:', formData);
     
     try {
       const res = await axiosSecure.put(`/AppliedScholarship/${_id}`, formData);  // Pass formData as body

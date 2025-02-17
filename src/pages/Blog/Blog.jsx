@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 
 function Blog() {
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [darkMode]);
+
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-6">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-10 px-6 transition-colors duration-300">
       <Helmet>
         <title>Blog</title>
       </Helmet>
+
+     
+
       <motion.h1
-        className="text-4xl font-bold text-center mb-10 text-gray-800"
+        className="text-4xl font-bold text-center mb-10 text-gray-800 dark:text-white"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -18,12 +35,12 @@ function Blog() {
       </motion.h1>
 
       <motion.p
-        className="text-lg text-center text-gray-600 mb-10 max-w-2xl mx-auto"
+        className="text-lg text-center text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        Stay updated with the latest news, articles, and insights about technology, education, and self-improvement. We bring you stories that inspire, inform, and empower!
+        Stay updated with the latest news, articles, and insights about technology, education, and self-improvement.
       </motion.p>
 
       <motion.div
@@ -43,7 +60,7 @@ function Blog() {
         {blogPosts.map((post, index) => (
           <motion.div
             key={index}
-            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition"
+            className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-md p-6 hover:shadow-lg transition"
             variants={{
               hidden: { scale: 0.8, opacity: 0 },
               visible: { scale: 1, opacity: 1 },
@@ -54,9 +71,11 @@ function Blog() {
               alt={post.title}
               className="w-full h-40 object-cover rounded-md mb-4"
             />
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">{post.title}</h2>
-            <p className="text-gray-600 mb-4">{post.excerpt}</p>
-            <button className="px-4 py-2 bg-[#890C25] text-white rounded-md hover:bg-[#66081b] transition">
+            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-2">
+              {post.title}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">{post.excerpt}</p>
+            <button className="px-4 py-2 bg-[#395BDF] text-white rounded-md hover:bg-white ring-2 hover:text-black/90 hover:ring-[#395BDF] transition">
               Read More
             </button>
           </motion.div>

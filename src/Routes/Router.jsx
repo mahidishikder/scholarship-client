@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
         element:<Home></Home>
       },
       {
-      path:'/scholarsships',
+      path:'/scholarships',
       element:<AllScholarships></AllScholarships>
       },
       {

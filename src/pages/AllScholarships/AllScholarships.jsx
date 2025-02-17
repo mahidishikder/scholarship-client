@@ -95,38 +95,41 @@ function AllScholarships() {
                 transition={{ duration: 0.5 }}
               >
                 <img
-                  src={item.university_logo}
-                  alt={item.university_name}
+                  src={item.
+                    universityImage}
+                  alt={item.universityName}
                   className="w-20 h-20 object-cover rounded-full shadow-md"
                 />
               </motion.div>
 
               {/* University Name */}
               <h3 className="text-lg font-bold text-center text-white mb-4">
-                {item.university_name}
+                {item.universityName}
               </h3>
 
               {/* Scholarship Info */}
               <div className="space-y-2">
                 <p className="text-sm text-gray-200">
                   <span className="font-medium text-white">Category:</span>{" "}
-                  {item.scholarship_category}
+                  {item.scholarshipCategory}
                 </p>
                 <p className="text-sm text-gray-200">
                   <span className="font-medium text-white">Subject:</span>{" "}
-                  {item.subject_category}
+                  {item.
+subjectCategory}
                 </p>
                 <p className="text-sm text-gray-200">
                   <span className="font-medium text-white">Location:</span>{" "}
-                  {item.location}
+                  {item.universityCountry}
                 </p>
                 <p className="text-sm text-gray-200">
                   <span className="font-medium text-white">Application Fee:</span>{" "}
-                  {item.application_fees}
+                  {item.applicationFees}
                 </p>
                 <p className="text-sm text-gray-200">
                   <span className="font-medium text-white">Deadline:</span>{" "}
-                  {item.deadline}
+                  {item.
+applicationDeadline}
                 </p>
               </div>
 
