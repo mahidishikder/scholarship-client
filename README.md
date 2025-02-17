@@ -1,20 +1,88 @@
+# 🎓 Scholarship Management System  
 
-Sure! Below is the README.md file template in English, which you can use for your project:
+## 🌟 Project Overview  
 
-Project Name
-Overview
-Project Name is a full-stack web application built with Firebase and React. It provides authentication, real-time database interaction, and hosting through Firebase. This project implements secure JWT-based authentication, user management, and other Firebase features like Firestore and Hosting.
+The **Scholarship Management System** is a user-friendly web platform that allows students to explore, filter, and apply for various scholarships. The system includes **secure authentication**, **smooth UI animations**, and **interactive features** for a seamless experience.  
 
-Live Demo
+🔗 **Live Project:** [Click Here](https://final-cf7ce.firebaseapp.com/)  
 
-Features
-Authentication: User login and sign-up via Firebase Authentication.
-Firestore: Real-time database to store user data and interactions.
-Firebase Hosting: Host the app on Firebase's global CDN.
-JWT Authentication: Secure routes and API calls with JWT tokens.
-Responsive Design: Fully responsive for both desktop and mobile users.
-Tech Stack
-Frontend: React, React Router, Axios
-Backend: Firebase (Firestore, Firebase Functions)
-Authentication: Firebase Authentication (with JWT)
-Hosting: Firebase Hosting
+---
+
+## 📸 Project Screenshot  
+
+![Project Screenshot](https://i.ibb.co.com/RThxCCwj/Screenshot-2025-02-05-190302.png)  
+
+---
+
+## 🚀 Features  
+
+✅ **User Authentication** (Login/Register)  
+✅ **Scholarship Search & Filter**  
+✅ **Application Management System**  
+✅ **Save Scholarships for Later**  
+✅ **Smooth Animations & Responsive UI**  
+✅ **Stripe Payment Gateway Integration**  
+✅ **Captcha Verification for Security**  
+✅ **Real-time Data Fetching & Updates**  
+
+---
+
+## 🛠 Technologies Used  
+
+### **Frontend**  
+- React.js  
+- React Router  
+- Framer Motion  
+- React Icons  
+- React Helmet  
+- Tailwind CSS  
+- DaisyUI  
+
+### **Backend & APIs**  
+- Firebase  
+- Axios  
+- React Query  
+
+### **Payment & Security**  
+- Stripe (React Stripe JS)  
+- React Simple Captcha  
+
+### **Other Utilities**  
+- React Toastify (Notifications)  
+- SweetAlert2 (Alerts & Popups)  
+- Swiper (Carousel & Sliders)  
+- Match Sorter & Sort-By (Filtering & Sorting)  
+
+---
+
+## 📦 Dependencies  
+
+```json
+"dependencies": {
+  "@stripe/react-stripe-js": "^3.1.1",
+  "@stripe/stripe-js": "^5.5.0",
+  "@tanstack/react-query": "^5.64.1",
+  "axios": "^1.7.9",
+  "firebase": "^11.1.0",
+  "framer-motion": "^11.17.0",
+  "localforage": "^1.10.0",
+  "match-sorter": "^8.0.0",
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "react-helmet": "^6.1.0",
+  "react-hook-form": "^7.54.2",
+  "react-icons": "^5.4.0",
+  "react-rating-stars-component": "^2.2.0",
+  "react-router-dom": "^7.1.1",
+  "react-simple-captcha": "^9.3.1",
+  "react-toastify": "^11.0.2",
+  "sort-by": "^1.2.0",
+  "sweetalert2": "^11.15.10",
+  "swiper": "^11.2.1"
+}
+
+
+
+
+
+
