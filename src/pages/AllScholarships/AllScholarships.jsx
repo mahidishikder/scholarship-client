@@ -47,46 +47,51 @@ function AllScholarships() {
 
   return (
     <motion.div
-      className="my-16 px-4"
+      className=" px-4 py-20 bg-blue-100 dark:bg-slate-900"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
       {/* Search Box */}
       <div className="flex justify-center items-center mb-8">
-        <Helmet>
-          <title>SCHOLARSSHIPS</title>
-        </Helmet>
+      <Helmet>
+        <title>Scholarships</title>
+      </Helmet>
+
+      <div className="flex items-center border border-gray-300 rounded-full  overflow-hidden max-w-lg w-full">
+        {/* Input Box */}
         <input
           type="text"
           placeholder="Search by Scholarship, University, or Degree Name"
-          className="border rounded-md p-2 w-full max-w-md"
+          className="px-4 w-full text-gray-800 py-3  placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#6D091D] focus:border-transparent"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
+
+        {/* Search Button */}
         <button
           onClick={handleSearch}
-          className="ml-4 bg-[#6D091D] text-white py-2 px-4 rounded-md hover:bg-[#520615] transition"
+          className="bg-[#3D3DC5] text-white py-3 px-4 hover:bg-white/80 transition duration-300"
         >
           Search
         </button>
       </div>
+    </div>
 
-      <h2 className="text-center text-4xl font-bold mb-16">
+      <h2 className="text-center lg:text-4xl text-3xl dark:text-white/80  font-bold mb-16">
         All Scholarships
       </h2>
 
       {filteredScholarships.length > 0 ? (
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 max-w-screen-2xl mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
           variants={containerVariants}
         >
           {filteredScholarships.map((item) => (
             <motion.div
               key={item._id}
-              className="border bg-[#6D091D] border-gray-700 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
-              variants={cardVariants}
-              whileHover="hover"
+              className="border border-gray-200 dark:border-gray-700 rounded-md shadow-lg p-6 hover:shadow-xl transition-shadow bg-[#4946EC]  bg-opacity-80 dark:bg-opacity-80"
+              
             >
               {/* University Logo */}
               <motion.div
@@ -103,33 +108,26 @@ function AllScholarships() {
               </motion.div>
 
               {/* University Name */}
-              <h3 className="text-lg font-bold text-center text-white mb-4">
+              <h3 className="text-lg font-bold text-center text-black dark:text-white mb-4">
                 {item.universityName}
               </h3>
 
               {/* Scholarship Info */}
               <div className="space-y-2">
-                <p className="text-sm text-gray-200">
-                  <span className="font-medium text-white">Category:</span>{" "}
-                  {item.scholarshipCategory}
+                <p className="text-sm text-gray-200 dark:text-gray-300">
+                  <span className="font-medium text-black dark:text-white">Category:</span> {item.scholarshipCategory}
                 </p>
-                <p className="text-sm text-gray-200">
-                  <span className="font-medium text-white">Subject:</span>{" "}
-                  {item.
-subjectCategory}
+                <p className="text-sm text-gray-200 dark:text-gray-300">
+                  <span className="font-medium text-black dark:text-white">Subject:</span> {item.scholarshipCategory}
                 </p>
-                <p className="text-sm text-gray-200">
-                  <span className="font-medium text-white">Location:</span>{" "}
-                  {item.universityCountry}
+                <p className="text-sm text-gray-200 dark:text-gray-300">
+                  <span className="font-medium text-black dark:text-white">Location:</span> {item.universityCountry}
                 </p>
-                <p className="text-sm text-gray-200">
-                  <span className="font-medium text-white">Application Fee:</span>{" "}
-                  {item.applicationFees}
+                <p className="text-sm text-gray-200 dark:text-gray-300">
+                  <span className="font-medium text-black dark:text-white">Application Fee:</span> {item.applicationFees}
                 </p>
-                <p className="text-sm text-gray-200">
-                  <span className="font-medium text-white">Deadline:</span>{" "}
-                  {item.
-applicationDeadline}
+                <p className="text-sm text-gray-200 dark:text-gray-300">
+                  <span className="font-medium text-black dark:text-white">Deadline:</span> {item.applicationDeadline}
                 </p>
               </div>
 
@@ -140,12 +138,14 @@ applicationDeadline}
                 </p>
               </div>
 
+              <Link to={`/scholarship/${item._id}`}>
               <motion.div
-                className="block mt-6 text-center bg-white text-slate-700 font-medium py-2 px-4 rounded-md hover:text-[#6D091D] transition-colors"
-                whileTap={{ scale: 0.9 }}
-              >
-                <Link to={`/scholarship/${item._id}`}>View Details</Link>
-              </motion.div>
+                  className="block mt-6 cursor-pointer text-center bg-gray-200 shadow-md hover:bg-gray-300  hover:ring-[#4946EC] hover:ring-2  text-slate-700 hover:text-[#4946EC]  font-medium py-2 px-4   transition-all"
+                  
+                >
+                  View Details
+                </motion.div>
+                </Link>
             </motion.div>
           ))}
         </motion.div>

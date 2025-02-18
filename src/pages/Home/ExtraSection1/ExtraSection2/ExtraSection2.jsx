@@ -12,7 +12,7 @@ function ExtraSection2() {
       >
         Top Scholarship Categories
       </motion.h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 mt-14">
+      <div className="grid grid-cols-1 max-w-screen-2xl mx-auto sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 mt-14">
         {/* Card 1 */}
         <motion.div
           className="bg-white shadow-lg rounded-lg p-6 text-center transform hover:scale-105 transition-all duration-300"

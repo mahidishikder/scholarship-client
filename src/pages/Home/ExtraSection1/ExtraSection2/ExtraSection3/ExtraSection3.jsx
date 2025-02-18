@@ -3,9 +3,16 @@ import { motion } from "framer-motion";
 
 function ExtraSection3() {
   return (
-    <section id="global-stats" className="py-12 bg-gradient-to-r from-green-50 to-green-100">
+    <section
+      id="global-stats"
+      className="relative py-12"
+    >
+      {/* Background Image */}
+      <div className="absolute top-0 left-0 w-full h-full bg-cover bg-center opacity-50" 
+           style={{ backgroundImage: "url('https://img.freepik.com/free-vector/white-abstract-background-paper-style_23-2148385754.jpg?t=st=1739885988~exp=1739889588~hmac=b875ea564a58f2c0982307a8ef71450e95c34a46c790de771972323908e84f42&w=1380')" }}></div>
+
       <motion.h2
-        className="text-3xl font-bold text-center mb-8 text-green-900"
+        className="text-3xl font-bold text-center mb-8 text-green-900 relative z-10"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -13,7 +20,7 @@ function ExtraSection3() {
         Scholarships by Continent
       </motion.h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 mt-14">
+      <div className="grid grid-cols-1 md:grid-cols-2 max-w-screen-2xl mx-auto lg:grid-cols-3 gap-8 px-4 mt-14">
         {/* Continent Card */}
         {[
           { name: "Africa", scholarships: 20000, color: "bg-green-500" },
@@ -52,7 +59,7 @@ function ExtraSection3() {
 
       <div className="mt-12 text-center px-4">
         <motion.h3
-          className="text-2xl font-semibold text-green-800 mb-4"
+          className="text-2xl font-semibold text-green-800 mb-4 relative z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7 }}
@@ -60,7 +67,7 @@ function ExtraSection3() {
           Key Insights
         </motion.h3>
         <motion.p
-          className="text-gray-700 text-lg max-w-3xl mx-auto"
+          className="text-gray-700 text-lg max-w-3xl mx-auto relative z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
