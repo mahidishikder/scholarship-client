@@ -102,8 +102,8 @@ function About() {
             Want to learn more about us? Feel free to get in touch!
           </p>
           <motion.button
-            className="px-6 py-3 bg-blue-600 dark:bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 dark:hover:bg-blue-600 transition"
-            whileHover={{ scale: 1.05 }}
+            className="px-6 py-3 bg-[#4946EC]  text-white font-semibold rounded-lg shadow-md  transition"
+            whileHover={{ scale: 0.97 }}
             whileTap={{ scale: 0.95 }}
           >
             Contact Us

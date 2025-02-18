@@ -137,7 +137,7 @@ function SignIn() {
           <button
             disabled={disabled}
             type="submit"
-            className={`w-full px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 ${
+            className={`w-full px-4 py-2 text-white bg-[#4946EC] rounded-lg  focus:ring-4 focus:ring-blue-300 ${
               disabled ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >

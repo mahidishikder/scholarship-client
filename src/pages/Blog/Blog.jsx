@@ -1,21 +1,11 @@
-import React, { useState, useEffect } from 'react';
+
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 
 function Blog() {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
-  });
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [darkMode]);
+
+
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-10 px-6 transition-colors duration-300">
@@ -75,7 +65,7 @@ function Blog() {
               {post.title}
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">{post.excerpt}</p>
-            <button className="px-4 py-2 bg-[#395BDF] text-white rounded-md hover:bg-white ring-2 hover:text-black/90 hover:ring-[#395BDF] transition">
+            <button className="px-4 py-2 bg-[#4946EC] text-white rounded-md hover:bg-white hover:ring-2 hover:text-black/90 hover:ring-[#4946EC] transition">
               Read More
             </button>
           </motion.div>

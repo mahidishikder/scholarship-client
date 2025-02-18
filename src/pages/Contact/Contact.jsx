@@ -87,8 +87,8 @@ function Contact() {
 
             <motion.button
               type="submit"
-              className="w-full px-4 py-2 bg-[#395BDF] text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 transition"
-              whileHover={{ scale: 1.05 }}
+              className="w-full px-4 py-2 bg-[#4946EC] text-white font-semibold rounded-md shadow-sm transition"
+              whileHover={{ scale: 0.97 }}
               whileTap={{ scale: 0.95 }}
             >
               Send Message

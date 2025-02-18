@@ -74,7 +74,7 @@ function Header() {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          isActive ? "text-blue-600 dark:text-blue-600 font-bold" : "text-gray-700 dark:text-white"
+          isActive ? "text-[#4946EC] dark:text-[#4946EC] font-bold" : "text-gray-700 dark:text-white"
         }
         onClick={() => setMenuOpen(false)}
       >
@@ -83,7 +83,7 @@ function Header() {
       <NavLink
         to="/scholarships"
         className={({ isActive }) =>
-          isActive ? "text-blue-600 dark:text-blue-600 font-bold" : "text-gray-700 dark:text-white"
+          isActive ? "text-[#4946EC] dark:text-[#4946EC] font-bold" : "text-gray-700 dark:text-white"
         }
         onClick={() => setMenuOpen(false)}
       >
@@ -92,7 +92,7 @@ function Header() {
       <NavLink
         to="/blog"
         className={({ isActive }) =>
-          isActive ? "text-blue-600 dark:text-blue-600 font-bold" : "text-gray-700 dark:text-white"
+          isActive ? "text-[#4946EC] dark:text-[#4946EC] font-bold" : "text-gray-700 dark:text-white"
         }
         onClick={() => setMenuOpen(false)}
       >
@@ -101,7 +101,7 @@ function Header() {
       <NavLink
         to="/about"
         className={({ isActive }) =>
-          isActive ? "text-blue-600 dark:text-blue-600 font-bold" : "text-gray-700 dark:text-white"
+          isActive ? "text-[#4946EC] dark:text-[#4946EC] font-bold" : "text-gray-700 dark:text-white"
         }
         onClick={() => setMenuOpen(false)}
       >
@@ -110,7 +110,7 @@ function Header() {
       <NavLink
         to="/contact"
         className={({ isActive }) =>
-          isActive ? "text-blue-600 dark:text-blue-600 font-bold" : "text-gray-700 dark:text-white"
+          isActive ? "text-[#4946EC] dark:text-[#4946EC] font-bold" : "text-gray-700 dark:text-white"
         }
         onClick={() => setMenuOpen(false)}
       >
@@ -121,12 +121,12 @@ function Header() {
 
   return (
     <div>
-      <div className="bg-slate-900 py-1">
+      <div className="bg-[#4946EC] py-1">
   <div className="max-w-screen-2xl mx-auto flex justify-between items-center">
     
     <div className="text-white/90 md:text-xl text-sm  font-semibold">
     Register with Google & get your first
-     <span className="text-red-500"> scholarship application free!</span>
+     <span className="text-red-400"> scholarship application free!</span>
     </div>
 
   
@@ -161,7 +161,7 @@ function Header() {
         {/* Dark Mode Toggle with Animation */}
         <motion.button
           onClick={handleThemeToggle}
-          className="text-3xl text-blue-600"
+          className="text-3xl text-[#4946EC]"
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -170,7 +170,7 @@ function Header() {
         </motion.button>
 
         {!user && (
-          <Link to="/signIn" className="py-2 px-3 bg-blue-600 flex items-center gap-1 text-white rounded">
+          <Link to="/signIn" className="py-2 px-3 bg-[#4946EC] flex items-center gap-1 text-white rounded">
             <RiUserLine /> Login
           </Link>
         )}
@@ -189,7 +189,7 @@ function Header() {
                   <li>
                     <Link
                       to="/profile"
-                      className="block px-4 text-lg py-2 hover:bg-blue-600 rounded hover:text-white"
+                      className="block px-4 text-lg py-2 hover:bg-[#4946EC] rounded hover:text-white"
                       onClick={() => setProfileOpen(false)}
                     >
                       Profile
@@ -198,7 +198,7 @@ function Header() {
                   <li>
                     <Link
                       to="/dashboard"
-                      className="block text-lg px-4 hover:bg-blue-600 mb-4 py-2 rounded hover:text-white"
+                      className="block text-lg px-4 hover:bg-[#4946EC] mb-4 py-2 rounded hover:text-white"
                       onClick={() => setProfileOpen(false)}
                     >
                       Dashboard
