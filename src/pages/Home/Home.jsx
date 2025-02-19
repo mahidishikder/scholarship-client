@@ -5,6 +5,8 @@ import ExtraSection1 from "./ExtraSection1/ExtraSection1"
 import ExtraSection2 from "./ExtraSection1/ExtraSection2/ExtraSection2"
 import ExtraSection3 from "./ExtraSection1/ExtraSection2/ExtraSection3/ExtraSection3"
 import Success from "./Success/Success"
+import UpcomingEvents from "./UpcomingEvents/UpcomingEvents"
+import KeyStar from "./keyStar/keyStar"
 
 function Home() {
   return (
@@ -16,6 +18,8 @@ function Home() {
       <HomeCard></HomeCard>
       <Success></Success>
       <ExtraSection1></ExtraSection1>
+      <UpcomingEvents></UpcomingEvents>
+      <KeyStar></KeyStar>
       <ExtraSection2></ExtraSection2>
       <ExtraSection3></ExtraSection3>
     </div>
