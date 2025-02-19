@@ -28,6 +28,7 @@ import ManageScholarship from "../pages/ManageScholarship/ManageScholarship";
 import ManageReview from "../pages/ManageReview/ManageReview";
 import AddScholarship from "../pages/AddScholarship/AddScholarship";
 import UpdateScholarshipForm from "../pages/UpdateScholarshipForm/UpdateScholarshipForm";
+import SuccessStory from "../pages/SuccessStory/SuccessStory";
 
 
 export const router = createBrowserRouter([
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
       path:'/scholarships',
       element:<AllScholarships></AllScholarships>
+      },
+      {
+         path:'/success_story',
+         element:<SuccessStory></SuccessStory>
       },
       {
         path: '/scholarship/:id',

@@ -11,6 +11,8 @@ import { IoLogoTwitter } from "react-icons/io";
 import { PiInstagramLogoBold } from "react-icons/pi";
 import { CiLinkedin } from "react-icons/ci";
 import { BiLogoFacebookSquare } from "react-icons/bi";
+import { IoNotifications } from "react-icons/io5";
+import { MdNotificationsPaused } from "react-icons/md";
 
 
 
@@ -18,6 +20,15 @@ import { BiLogoFacebookSquare } from "react-icons/bi";
 
 
 function Header() {
+  
+
+    const [open, setOpen] = useState(false);
+    
+    // Sample notifications
+    const notifications = [
+      { id: 1, message: "New Scholarship Opportunity Available!" },
+      { id: 2, message: "Your application has been reviewed." },
+    ];
   const { user, logOut, setLoading } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -90,6 +101,15 @@ function Header() {
         SCHOLARSHIPS
       </NavLink>
       <NavLink
+        to="/success_story"
+        className={({ isActive }) =>
+          isActive ? "text-[#4946EC] dark:text-[#4946EC] font-bold" : "text-gray-700 dark:text-white"
+        }
+        onClick={() => setMenuOpen(false)}
+      >
+        SUCCESS STORY
+      </NavLink>
+      <NavLink
         to="/blog"
         className={({ isActive }) =>
           isActive ? "text-[#4946EC] dark:text-[#4946EC] font-bold" : "text-gray-700 dark:text-white"
@@ -120,7 +140,7 @@ function Header() {
   );
 
   return (
-    <div>
+    <div className="">
       <div className="bg-[#4946EC] py-1">
   <div className="max-w-screen-2xl mx-auto flex justify-between items-center">
     
@@ -139,7 +159,7 @@ function Header() {
   </div>
 </div>
 
-      <div className=" bg-gray-100 shadow-md dark:bg-slate-700">
+      <div className=" bg-gray-200 shadow-neutral   dark:bg-slate-700">
       <div className="navbar max-w-screen-2xl  mx-auto   relative">
       <div className="navbar-start gap-2">
         <motion.img
@@ -158,7 +178,36 @@ function Header() {
       </div>
 
       <div className="navbar-end flex items-center space-x-4">
+      <div className="relative">
+      {/* Notification Icon with Badge */}
+      <div className="relative cursor-pointer z-20" onClick={() => setOpen(!open)}>
+        <MdNotificationsPaused className="text-3xl text-[#4946EC]" />
+        
+        {/* Badge for unread notifications */}
+        {notifications.length > 0 && (
+          <span className="absolute -top-2 -right- bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+            {notifications.length}
+          </span>
+        )}
+      </div>
+
+      {/* Notification Box */}
+      {open && (
+        <div className="absolute z-20 -right-10 sm:right-0 mt-2 w-64 bg-white dark:bg-slate-800 shadow-lg rounded-lg p-4">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Notifications</h3>
+          <ul className="mt-2 space-y-2">
+            {notifications.map((notif) => (
+              <li key={notif.id} className="text-sm text-gray-700 dark:text-gray-300 p-2 bg-gray-100 dark:bg-gray-700 rounded">
+                {notif.message}
+              </li>
+            ))}
+          </ul>
+          {notifications.length === 0 && <p className="text-sm text-gray-500">No new notifications</p>}
+        </div>
+      )}
+    </div>
         {/* Dark Mode Toggle with Animation */}
+
         <motion.button
           onClick={handleThemeToggle}
           className="text-3xl text-[#4946EC]"

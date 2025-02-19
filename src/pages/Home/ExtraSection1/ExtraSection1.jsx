@@ -16,7 +16,7 @@ function ExtraSection1() {
       <div className="absolute inset-0 bg-gray-200 opacity-60 dark:opacity-80 dark:bg-slate-900"></div>
 
       <motion.h2
-        className="text-3xl font-bold text-center mb-10 relative z-10 text-black/80 dark:text-white/90"
+        className="sm:text-4xl  text-3xl font-bold text-center mb-10 relative z-10 text-[#4946EC] dark:text-white/90"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -24,7 +24,7 @@ function ExtraSection1() {
         Featured Universities
       </motion.h2>
 
-      <div className="grid grid-cols-1 max-w-screen-2xl mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 relative z-10">
+      <div className="grid grid-cols-1 max-w-screen-2xl  mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 relative z-10">
         {/* University Cards */}
         {[
           {
@@ -46,7 +46,7 @@ function ExtraSection1() {
         ].map((university, index) => (
           <motion.div
             key={index}
-            className="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
+            className="bg-white shadow shadow-blue-600 rounded-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}

@@ -3,16 +3,18 @@ import { motion } from "framer-motion";
 
 function ExtraSection3() {
   return (
-    <section
-      id="global-stats"
-      className="relative py-12"
-    >
+    <section id="global-stats" className="relative py-12 dark:bg-slate-900">
       {/* Background Image */}
-      <div className="absolute top-0 left-0 w-full h-full bg-cover bg-center opacity-50" 
-           style={{ backgroundImage: "url('https://img.freepik.com/free-vector/white-abstract-background-paper-style_23-2148385754.jpg?t=st=1739885988~exp=1739889588~hmac=b875ea564a58f2c0982307a8ef71450e95c34a46c790de771972323908e84f42&w=1380')" }}></div>
+      <div
+        className="absolute top-0 left-0 w-full h-full bg-cover bg-center opacity-10"
+        style={{
+          backgroundImage:
+            "url('https://img.freepik.com/free-vector/white-abstract-background-paper-style_23-2148385754.jpg?t=st=1739885988~exp=1739889588~hmac=b875ea564a58f2c0982307a8ef71450e95c34a46c790de771972323908e84f42&w=1380')",
+        }}
+      ></div>
 
       <motion.h2
-        className="text-3xl font-bold text-center mb-8 text-green-900 relative z-10"
+        className="text-3xl sm:text-4xl font-bold text-center mb-8 text-[#4946EC] dark:text-white/90 relative z-10"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -32,24 +34,28 @@ function ExtraSection3() {
         ].map((continent, index) => (
           <motion.div
             key={index}
-            className="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300"
+            className="bg-white dark:bg-slate-800 shadow-md shadow-gray-400 dark:shadow-blue-600 rounded-lg p-6 transform hover:scale-105 transition-all duration-300"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <h3 className="text-lg font-bold text-gray-800 mb-2">{continent.name}</h3>
-            <p className="text-sm text-gray-600">
+            <h3 className="text-lg font-bold text-gray-800 dark:text-white/90 mb-2">
+              {continent.name}
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-white/90">
               Scholarships:{" "}
-              <span className="font-semibold text-green-700">{continent.scholarships.toLocaleString()}</span>
+              <span className="font-semibold text-green-700 dark:text-green-400">
+                {continent.scholarships.toLocaleString()}
+              </span>
             </p>
-            <div className="w-full bg-gray-200 rounded-full h-4 mt-4 relative">
+            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 mt-4 relative">
               <div
                 className={`h-4 rounded-full ${continent.color}`}
                 style={{
                   width: `${(continent.scholarships / 50000) * 100}%`,
                 }}
               ></div>
-              <span className="absolute right-2 text-xs text-gray-600 top-0.5">
+              <span className="absolute right-2 text-xs text-gray-600 dark:text-gray-300 top-0.5">
                 {(continent.scholarships / 50000) * 100}%
               </span>
             </div>
@@ -59,7 +65,7 @@ function ExtraSection3() {
 
       <div className="mt-12 text-center px-4">
         <motion.h3
-          className="text-2xl font-semibold text-green-800 mb-4 relative z-10"
+          className="text-2xl font-semibold text-green-800 dark:text-green-400 mb-4 relative z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7 }}
@@ -67,7 +73,7 @@ function ExtraSection3() {
           Key Insights
         </motion.h3>
         <motion.p
-          className="text-gray-700 text-lg max-w-3xl mx-auto relative z-10"
+          className="text-gray-700 dark:text-white/90 text-lg max-w-3xl mx-auto relative z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}

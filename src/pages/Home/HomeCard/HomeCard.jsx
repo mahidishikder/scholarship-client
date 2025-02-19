@@ -23,7 +23,7 @@ function HomeCard() {
       <div className="absolute inset-0 dark:bg-black/80 bg-white/80"></div>
 
       <div className="relative z-10 max-w-screen-2xl mx-auto">
-        <h2 className="text-center text-4xl font-bold mb-14 text-black dark:text-white">
+        <h2 className="text-center text-3xl sm:text-4xl font-bold mb-14 text-[#4946EC] dark:text-white">
           Top Scholarships Awaiting You
         </h2>
 
