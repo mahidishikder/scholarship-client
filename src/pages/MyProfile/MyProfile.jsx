@@ -62,7 +62,7 @@ function MyProfile() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-[#6D091D] to-[#940c28] ">
+    <div className="flex items-center justify-center min-h-screen bg-gray-200 ">
       <Helmet>
         <title>MY PROFILE</title>
       </Helmet>
@@ -81,7 +81,7 @@ function MyProfile() {
                 "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg"
               }
               alt=""
-              className="w-32 h-32 mb-4 rounded-full border-4 border-[#940c28] shadow-lg"
+              className="w-32 h-32 mb-4 rounded-full border-4 border-[#4946EC] p-1 shadow-lg"
             />
           </motion.div>
 
@@ -114,7 +114,7 @@ function MyProfile() {
           {/* Buttons */}
           <motion.div className="flex gap-4 mt-6">
             <motion.button
-              className="px-6 py-2 text-white bg-[#6D091D] rounded-lg shadow-md hover:bg-[#940c28] focus:ring-4 focus:ring-[#6D091D]"
+              className="px-6 py-2 text-white bg-[#4946EC] rounded-lg shadow-md "
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -122,7 +122,7 @@ function MyProfile() {
             </motion.button>
             <motion.button
             onClick={handleLogout}
-              className="px-6 py-2 text-white bg-gray-700 rounded-lg shadow-md hover:bg-gray-800 focus:ring-4 focus:ring-gray-600"
+              className="px-6 py-2 text-white bg-red-500 rounded-lg shadow-md hover:bg-gray-800 focus:ring-4 focus:ring-gray-600"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >

@@ -29,6 +29,7 @@ import ManageReview from "../pages/ManageReview/ManageReview";
 import AddScholarship from "../pages/AddScholarship/AddScholarship";
 import UpdateScholarshipForm from "../pages/UpdateScholarshipForm/UpdateScholarshipForm";
 import SuccessStory from "../pages/SuccessStory/SuccessStory";
+import Dashboard_info from "../pages/Dashboard_info/Dashboard_info";
 
 
 export const router = createBrowserRouter([
@@ -117,6 +118,10 @@ export const router = createBrowserRouter([
       {
         path:'/dashboard/profile',
         element:<MyProfile></MyProfile>
+      },
+      {
+        path:'/dashboard',
+        element:<Dashboard_info></Dashboard_info>
       },
       {
         path:'/dashboard/applications',

@@ -103,13 +103,13 @@ function AllUser() {
                     <div>
                       <button
                         onClick={() => handleMakeRole(user._id, "admin")}
-                        className="bg-[#7E0F27] py-2 px-3 rounded text-white text-lg hover:bg-[#a01433] transition duration-200"
+                        className="bg-[#4946EC] py-2 px-3 rounded text-white text-lg transition duration-200"
                       >
                         Admin
                       </button>
                       <button
                         onClick={() => handleMakeRole(user._id, "moderator")}
-                        className="bg-blue-500 py-2 px-3 rounded text-white text-lg hover:bg-blue-700 transition duration-200 ml-2"
+                        className="bg-[#7573ee] py-2 px-3 rounded text-white text-lg hover:bg-blue-700 transition duration-200 ml-2"
                       >
                         Moderator
                       </button>

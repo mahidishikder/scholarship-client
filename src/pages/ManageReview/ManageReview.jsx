@@ -41,7 +41,7 @@ function ManageReview() {
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.4 }}
-              className="bg-[#890C25] text-white"
+              className="bg-[#4946EC] text-white"
             >
               <Helmet><title>MANAGE REVIEWS</title></Helmet>
               <th className="py-3 px-6">Scholarship Name</th>
