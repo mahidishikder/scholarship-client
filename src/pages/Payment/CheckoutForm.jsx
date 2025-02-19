@@ -118,36 +118,37 @@ function CheckoutForm({ price, UName, SCategory, SubCategory,serviceChargee,_id,
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg"
+      className="max-w-md mx-auto  p-6 bg-blue-200 mt-10 dark:bg-slate-700 shadow-md rounded-lg"
     >
-      <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+      <div className="mb-6 ">
+        <label className="block text-sm font-medium dark:text-white/80 text-gray-700 mb-2">
           Card Details
         </label>
-        <div className="border border-gray-300 p-3 rounded-md shadow-sm focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500">
-          <CardElement
-            options={{
-              style: {
-                base: {
-                  fontSize: "16px",
-                  color: "#424770",
-                  fontFamily: "Arial, sans-serif",
-                  "::placeholder": {
-                    color: "#aab7c4",
-                  },
-                },
-                invalid: {
-                  color: "#9e2146",
-                },
-              },
-            }}
-          />
+        <div className="border   border-gray-300 p-3 rounded-md shadow-sm focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500">
+        <CardElement
+  options={{
+    style: {
+      base: {
+        fontSize: "16px",
+        color: "#4946EC", // White color for dark mode
+        fontFamily: "Arial, sans-serif",
+        "::placeholder": {
+          color: "", // Light gray for better visibility
+        },
+      },
+      invalid: {
+        color: "#ff4d4d",
+      },
+    },
+  }}
+/>
+
         </div>
       </div>
       <button
         type="submit"
         disabled={!stripe}
-        className="w-full py-2 px-4 bg-blue-600 text-white font-medium text-sm rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+        className="w-full py-2 px-4 bg-[#4946EC] hover:bg-[#6765f0] text-white font-medium text-sm  shadow focus:ring-offset-2 disabled:opacity-50"
       >
         Pay
       </button>

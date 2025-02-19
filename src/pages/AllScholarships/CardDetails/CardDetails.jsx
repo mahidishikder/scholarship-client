@@ -108,15 +108,15 @@ function CardDetails() {
   };
 
   return (
-    <div>
+    <div className="bg-blue-200  dark:bg-slate-900 py-20">
       <motion.div
-        className="max-w-4xl mx-auto my-16 px-4"
+        className="max-w-4xl mx-auto  px-4"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.h2
-          className="text-center text-4xl font-bold text-blue-700 mb-8"
+          className="text-center sm:text-4xl text-3xl font-bold text-blue-700 mb-8"
           variants={itemVariants}
         >
           {universityName}
@@ -136,51 +136,52 @@ function CardDetails() {
         </motion.div>
 
         <motion.div
-          className="bg-gray-100 p-6 rounded-lg shadow-md space-y-4"
+          className="bg-blue-100 dark:bg-slate-700 p-6 rounded-lg shadow-md space-y-4"
           variants={itemVariants}
         >
-          <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Category:</span> {scholarshipCategory}
+          <motion.p className="text-lg text-gray-700 dark:text-white/70" variants={itemVariants}>
+            <span className="font-bold dark:text-white/80">Category:</span> {scholarshipCategory}
           </motion.p>
 
-          <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Subject:</span> {subjectCategory}
+          <motion.p className="text-lg text-gray-700 dark:text-white/70 " variants={itemVariants}>
+            <span className="font-bold dark:text-white/80">Subject:</span> {subjectCategory}
           </motion.p>
 
-          <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Location:</span> {universityCountry}
+          <motion.p className="text-lg text-gray-700 dark:text-white/70" variants={itemVariants}>
+            <span className="font-bold dark:text-white/80">Location:</span> {universityCountry}
           </motion.p>
 
-          <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Application Fee:</span> {applicationFees}
+          <motion.p className="text-lg text-gray-700 dark:text-white/70" variants={itemVariants}>
+            <span className="font-bold dark:text-white/80">Application Fee:</span> {applicationFees}
           </motion.p>
 
-          <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Deadline:</span> {applicationDeadline}
+          <motion.p className="text-lg text-gray-700 dark:text-white/70" variants={itemVariants}>
+            <span className="font-bold dark:text-white/80">Deadline:</span> {applicationDeadline}
           </motion.p>
 
           <motion.div
             className="flex items-center space-x-2"
             variants={itemVariants}
           >
-            <span className="font-bold text-lg text-yellow-500">⭐</span>
-            <p className="text-lg text-gray-700">{rating} / 5</p>
+            <span className="font-bold dark:text-white/80 text-lg text-yellow-500">⭐</span>
+            <p className="text-lg text-gray-700 dark:text-white/70">{rating} / 5</p>
           </motion.div>
 
-          <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Description:</span> {scholarshipDetails}
+          <motion.p className="text-lg text-gray-700 dark:text-white/70" variants={itemVariants}>
+            <span className="font-bold dark:text-white/80">Description:</span> {scholarshipDetails}
           </motion.p>
 
-          <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Stipend:</span> {stipend}
+          <motion.p className="text-lg text-gray-700 dark:text-white/70" variants={itemVariants}>
+            <span className="font-bold dark:text-white/80">Stipend:</span> {stipend}
           </motion.p>
 
-          <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Service Charge:</span> {serviceCharge}
+          <motion.p className="text-lg text-gray-700 dark:text-white/70" variants={itemVariants}>
+            <span className="font-bold dark:text-white/80">Service Charge:</span> {serviceCharge}
           </motion.p>
 
-          <motion.p className="text-lg text-gray-700" variants={itemVariants}>
-            <span className="font-bold">Post Date:</span> {postDate}
+          <motion.p className="text-lg text-gray-700 dark:text-white/70" variants={itemVariants}>
+            <span className="font-bold dark:text-white/80">Service Charge:</span> {serviceCharge}
+            <span className="font-bold dark:text-white/80">Post Date:</span> {postDate}
           </motion.p>
         </motion.div>
 
@@ -203,14 +204,15 @@ function CardDetails() {
               universityCountry, // Added universityCountry here
             }}
           >
-            <button className="bg-[#6d091d] text-white py-2 px-6 rounded-lg hover:bg-[#960d28] transition-colors">
+            <button className="bg-[#4946EC] text-white py-3 px-10   transition-colors">
               Apply Scholarship
             </button>
           </Link>
         </motion.div>
       </motion.div>
 
-      <h2 className="text-4xl font-semibold text-center mb-12">Our Student Reviews</h2>
+      <h2 className="sm:text-4xl text-3xl font-semibold text-center mb-12 mt-10  dark:text-white/90">Our Student Reviews</h2>
+      <div className="px-2">
       <Swiper
         watchSlidesProgress={true}
         slidesPerView={3}
@@ -225,20 +227,20 @@ function CardDetails() {
           768: { slidesPerView: 2, spaceBetween: 20 },
           1024: { slidesPerView: 3, spaceBetween: 30 },
         }}
-        className="mySwiper"
+        className="mySwiper max-w-screen-2xl  mx-auto"
       >
         {reviews
           .filter((items) => items.scholarshipId === data._id)
           .map((items) => (
             <SwiperSlide
               key={items._id}
-              className="bg-white border-2 p-6 rounded-lg shadow-lg transform transition-all hover:scale-105 w-full"
+              className="bg-white dark:bg-slate-700 border-2 p-6 rounded-lg shadow-lg transform transition-all hover:scale-105"
             >
               <div className="flex flex-col items-center my-4">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl dark:text-white/90 font-semibold text-gray-900 mb-2">
                   {items.reviewName}
                 </h3>
-                <p className="text-sm text-gray-500 mb-1">{items.userEmail}</p>
+                <p className=" text-gray-500 mb-1 dark:text-blue-600">{items.userEmail}</p>
                 <p className="text-xs text-gray-400 mb-3">{items.dateSubmitted}</p>
                 <div className="mb-3">
                   <ReactStars
@@ -254,9 +256,10 @@ function CardDetails() {
             </SwiperSlide>
           ))}
       </Swiper>
+      </div>
 
       <div className=" max-w-4xl mx-auto px-4 my-24">
-        <h2 className="text-center text-2xl font-bold mb-4">Your Review</h2>
+        <h2 className="text-center text-2xl font-bold mb-4 dark:text-white/90">Your Review</h2>
         <ReactStars
           count={5}
           value={reviewRating}
@@ -269,12 +272,12 @@ function CardDetails() {
           value={review}
           onChange={handleReviewChange}
           placeholder="Write your review here"
-          className="border p-2 w-full h-24 mt-4 mb-4"
+          className="border rounded-lg bg-sky-100 p-2 w-full h-24 mt-4 mb-4"
         ></textarea>
         <div className="mb-10">
           <button
             onClick={handleSubmit}
-            className="bg-[#6d091d] text-white py-2 px-4 rounded"
+            className="bg-[#4946EC] text-white py-2 px-4 "
           >
             Submit Review
           </button>

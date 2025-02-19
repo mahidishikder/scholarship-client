@@ -159,7 +159,7 @@ function Header() {
   </div>
 </div>
 
-      <div className=" bg-gray-200 shadow-neutral   dark:bg-slate-700">
+      <div className=" bg-gray-200 shadow-neutral   dark:bg-slate-800">
       <div className="navbar max-w-screen-2xl  mx-auto   relative">
       <div className="navbar-start gap-2">
         <motion.img
@@ -193,7 +193,7 @@ function Header() {
 
       {/* Notification Box */}
       {open && (
-        <div className="absolute z-20 -right-10 sm:right-0 mt-2 w-64 bg-white dark:bg-slate-800 shadow-lg rounded-lg p-4">
+        <div className="absolute z-20 -right-10 sm:right-0 mt-2 w-64 bg-blue-300 dark:bg-slate-800 shadow-lg rounded-lg p-4">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Notifications</h3>
           <ul className="mt-2 space-y-2">
             {notifications.map((notif) => (

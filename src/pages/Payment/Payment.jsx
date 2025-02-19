@@ -33,9 +33,9 @@ function Payment() {
   console.log(price, UName, SCategory, SubCategory,serviceChargee,locationn);
 
   return (
-    <div className="my-32">
-      <h1 className="text-3xl font-bold text-center">Payment</h1>
-      <div>
+    <div className="md:py-72 py-52 dark:bg-slate-900 bg-gray-100">
+      <h1 className="md:text-3xl  text-2xl dark:text-[#4C45E7] font-bold text-center">Payment</h1>
+      <div className="px-2">
         <Elements stripe={stripePromise}>
           <CheckoutForm 
             price={price} 

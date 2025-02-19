@@ -62,13 +62,13 @@ function ScholarshipForm() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl my-24 ring-[#890C25] ring-2">
-        <h2 className="text-3xl my-6 font-bold mb-10 text-center text-[#890C25]">Scholarship Application Form</h2>
+    <div className="flex justify-center items-center min-h-screen bg-sly-100">
+      <div className=" bg-blue-200 dark:bg-slate-800 shadow-lg rounded-lg p-8 w-full max-w-4xl my-24 ring-[#890C25] ring-2">
+        <h2 className="text-3xl my-6 font-bold mb-10 text-center dark:text-white/90 text-[#4946EC]">Scholarship Application Form</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Phone Number */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">Phone Number</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-white/80">Phone Number</label>
             <input
               type="text"
               name="phone"
@@ -80,51 +80,51 @@ function ScholarshipForm() {
 
           {/* Photo Upload */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">Upload Photo</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-white/80">Upload Photo</label>
             <input
               type="file"
               name="photo"
               accept="image/*"
               required
-              className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:border-gray-300 file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100"
+              className="mt-1 block w-full text-sm text-gray-500 dark:text-white/80 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:border-gray-300 file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100"
             />
           </div>
 
           {/* Address */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">Address</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-white/80">Address</label>
             <div className="grid grid-cols-3 gap-2">
               <input
                 type="text"
                 name="village"
                 placeholder="Village"
                 required
-                className="block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+                className="block w-full border border-gray-300 dark:text-white/80 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
               />
               <input
                 type="text"
                 name="district"
                 placeholder="District"
                 required
-                className="block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+                className="block w-full border border-gray-300 dark:text-white/80 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
               />
               <input
                 type="text"
                 name="country"
                 placeholder="Country"
                 required
-                className="block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+                className="block w-full border border-gray-300 dark:text-white/80 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
           </div>
 
           {/* Gender */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">Gender</label>
+            <label className="block text-sm font-medium dark:text-white/80 text-gray-700">Gender</label>
             <select
               name="gender"
               required
-              className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 block w-full border border-gray-300 rounded-lg dark:text-white/80 shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -134,11 +134,11 @@ function ScholarshipForm() {
 
           {/* Degree */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">Degree</label>
+            <label className="block text-sm dark:text-white/80 font-medium text-gray-700">Degree</label>
             <select
               name="degree"
               required
-              className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 block w-full border border-gray-300 dark:text-white/80 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="Diploma">Diploma</option>
               <option value="Bachelor">Bachelor</option>
@@ -148,31 +148,31 @@ function ScholarshipForm() {
 
           {/* SSC and HSC Results */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">SSC and HSC Results</label>
+            <label className="block text-sm font-medium dark:text-white/80 text-gray-700">SSC and HSC Results</label>
             <div className="grid grid-cols-2 gap-2">
               <input
                 type="text"
                 name="sscResult"
                 placeholder="SSC Result"
                 required
-                className="block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+                className="block w-full border dark:text-white/80 border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
               />
               <input
                 type="text"
                 name="hscResult"
                 placeholder="HSC Result"
                 required
-                className="block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+                className="block w-full border dark:text-white/80 border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
           </div>
 
           {/* Study Gap */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">Study Gap</label>
+            <label className="block text-sm font-medium dark:text-white/80 text-gray-700">Study Gap</label>
             <select
               name="studyGap"
-              className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 block w-full border dark:text-white/80 border-gray-300 rounded-lg shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="">No Gap</option>
               <option value="1 year">1 Year</option>
@@ -182,24 +182,24 @@ function ScholarshipForm() {
 
           {/* Display Read-Only Fields */}
           <div>
-            <label className='block text-sm font-medium text-gray-700'>University Name</label>
+            <label className='block text-sm font-medium dark:text-white/80 text-gray-700'>University Name</label>
             <input type="text" value={UName} readOnly className='mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2' />
           </div>
 
           <div>
-            <label className='block text-sm font-medium text-gray-700'>Scholarship Category</label>
+            <label className='block text-sm font-medium dark:text-white/80 text-gray-700'>Scholarship Category</label>
             <input type="text" value={SCategory} readOnly className='mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2' />
           </div>
 
           <div>
-            <label className='block text-sm font-medium text-gray-700'>Subject Category</label>
+            <label className='block text-sm font-medium dark:text-white/80 text-gray-700'>Subject Category</label>
             <input type="text" value={SubCategory} readOnly className='mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2' />
           </div>
 
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-[#890C25] text-white font-medium py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full bg-[#4946EC] text-white dark:text-white/80 font-medium py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             Submit
           </button>
